@@ -1,61 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Umair — Profile</title>
-    <link rel="stylesheet" href="profile-card.css" />
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <main class="page">
-        <section class="card" aria-label="Profile card for Umair">
-            <div class="card-media">
-                <img src="https://scontent.flyp7-1.fna.fbcdn.net/v/t39.30808-1/604788505_2088977845173675_1696366589512871547_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=106&ccb=1-7&_nc_sid=e99d92&_nc_ohc=aryBXPWgu_YQ7kNvwE-izla&_nc_oc=AdkmG7Dg_AOwhJNfG1VMZXDJD8XiIGqzz3gJ4FNh5YNJ50glx1eQ6VWigKYrZHLiorw&_nc_zt=24&_nc_ht=scontent.flyp7-1.fna&_nc_gid=ZOBzjif08C5vCucZ2-Nopg&oh=00_AfnDYlrNwjkvZnBDKmiefB0S1FowcQVAxj2uKFgYnFJgeQ&oe=695726AF" alt="Profile photo of Umair" class="avatar">
+    <title>Umair — Profiles</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="card" aria-label="Profile card for Umair">
+        <!-- Profile Section (Left side on desktop, top on mobile) -->
+        <div class="profile-section">
+          <div class="profile-header">
+            <div class="avatar-container">
+              <div class="avatar">
+                <img
+                  src="https://scontent.flyp7-1.fna.fbcdn.net/v/t39.30808-1/604788505_2088977845173675_1696366589512871547_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=106&ccb=1-7&_nc_sid=e99d92&_nc_ohc=aryBXPWgu_YQ7kNvwE-izla&_nc_oc=AdkmG7Dg_AOwhJNfG1VMZXDJD8XiIGqzz3gJ4FNh5YNJ50glx1eQ6VWigKYrZHLiorw&_nc_zt=24&_nc_ht=scontent.flyp7-1.fna&_nc_gid=ZOBzjif08C5vCucZ2-Nopg&oh=00_AfnDYlrNwjkvZnBDKmiefB0S1FowcQVAxj2uKFgYnFJgeQ&oe=695726AF"
+                  alt="Profile photo of Umair"
+                  class="avatar"
+                  alt="Profile picture of Muhammad Umair"
+                />
+              </div>
+              <div class="online-status" title="Online"></div>
             </div>
-            <div class="card-body">
-                <h1 class="display-name">Muhammad Umair</h1>
-                <p class="role">BSCS Student</p>
-                <p class="username">@umair12x</p>
 
-                <nav class="social" aria-label="Social links">
-                    <a class="social-link" href="https://facebook.com/umair12x" target="_blank" rel="noopener" aria-label="Facebook profile">
-                        <i class='bx bxl-facebook'></i>
-                        <span class="sr">Facebook</span>
-                    </a>
-                    <a class="social-link" href="https://instagram.com/umair12x" target="_blank" rel="noopener" aria-label="Instagram profile">
-                        <i class='bx bxl-instagram'></i>
-                        <span class="sr">Instagram</span>
-                    </a>
-                    <a class="social-link" href="https://x.com/umair12x" target="_blank" rel="noopener" aria-label="X profile">
-                        <i class='bx bxl-twitter'></i>
-                        <span class="sr">X</span>
-                    </a>
-                    <a class="social-link" href="https://github.com/umair12x" target="_blank" rel="noopener" aria-label="GitHub profile">
-                        <i class='bx bxl-github'></i>
-                        <span class="sr">GitHub</span>
-                    </a>
-                </nav>
+            <h1 class="display-name">Muhammad Umair</h1>
+            <p class="role">BSCS</p>
+            <p class="username"><i class="fas fa-at"></i>umair12x</p>
+          </div>
 
-                <div class="actions">
-                    <a class="btn primary" href="https://wa.me/?text=Hi%20Umair%20(%40umair12x)%20—%20I%20found%20your%20profile" target="_blank" rel="noopener" aria-label="Message Umair on WhatsApp">Message on WhatsApp</a>
-                    <a class="btn outline" href="mailto:hello@umair12x.example" aria-label="Send email">Email</a>
+          <div class="actions">
+            <a
+              class="btn btn-primary"
+              href="https://wa.me/923095330695?text=Hi%20Umair,%20I%20found%20your%20profile"
+              target="_blank"
+              rel="noopener"
+              aria-label="Message Umair on WhatsApp"
+            >
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+
+            <a
+              class="btn btn-outline"
+              href="mailto:umairim24@gmail.com"
+              aria-label="Send email to Umair"
+            >
+              <i class="fas fa-envelope"></i> Email
+            </a>
+          </div>
+
+          <p class="note">
+            <i class="fas fa-info-circle"></i> Share this profile to connect
+          </p>
+        </div>
+
+        <!-- Content Section (Right side on desktop, bottom on mobile) -->
+        <div class="content-section">
+          <div class="social-section">
+            <h2 class="section-title">
+              <i class="fas fa-share-alt"></i> My Social Profiles
+            </h2>
+
+            <div class="social-grid" aria-label="Social links">
+              <a
+                class="social-link"
+                href="https://facebook.com/umair12x"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook profile"
+              >
+                <i class="fab fa-facebook social-icon facebook"></i>
+                <div class="social-info">
+                  <span class="social-name">Facebook</span>
+                  <span class="social-username">@umair12x</span>
                 </div>
-
-                <p class="note">Share or save this page to let people find my profiles across platforms.</p>
+              </a>
+              <a
+                class="social-link"
+                href="https://instagram.com/umair12x"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram profile"
+              >
+                <i class="fab fa-instagram social-icon instagram"></i>
+                <div class="social-info">
+                  <span class="social-name">Instagram</span>
+                  <span class="social-username">@umair12x</span>
+                </div>
+              </a>
+              <a
+                class="social-link"
+                href="https://x.com/umair12x"
+                target="_blank"
+                rel="noopener"
+                aria-label="X profile"
+              >
+                <i class="fab fa-twitter social-icon x-twitter"></i>
+                <div class="social-info">
+                  <span class="social-name">X / Twitter</span>
+                  <span class="social-username">@umair12x</span>
+                </div>
+              </a>
+              <a
+                class="social-link"
+                href="https://github.com/umair12x"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub profile"
+              >
+                <i class="fab fa-github social-icon github"></i>
+                <div class="social-info">
+                  <span class="social-name">GitHub</span>
+                  <span class="social-username">@umair12x</span>
+                </div>
+              </a>
             </div>
-        </section>
-    </main>
+          </div>
+
+          <div class="footer">
+            <p>All platforms: <strong>@umair12x</strong></p>
+            <p>Computer Science Student | Web Developer</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme toggle button -->
+      <div class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </div>
+    </div>
 
     <script>
-        // Small enhancement: add prefers-color-scheme class to html for older browsers
-        try {
-            const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            document.documentElement.classList.toggle('theme-dark', isDark);
-        } catch (e) { /* ignore */ }
-    </script>
-</body>
+      // Theme detection and toggle functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = document.getElementById("themeIcon");
+        const htmlElement = document.documentElement;
 
+        // Check for saved theme preference or use device preference
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          htmlElement.classList.add("theme-dark");
+          themeIcon.classList.remove("fa-moon");
+          themeIcon.classList.add("fa-sun");
+        }
+
+        // Toggle theme when button is clicked
+        themeToggle.addEventListener("click", function () {
+          htmlElement.classList.toggle("theme-dark");
+
+          if (htmlElement.classList.contains("theme-dark")) {
+            localStorage.setItem("theme", "dark");
+            themeIcon.classList.remove("fa-moon");
+            themeIcon.classList.add("fa-sun");
+          } else {
+            localStorage.setItem("theme", "light");
+            themeIcon.classList.remove("fa-sun");
+            themeIcon.classList.add("fa-moon");
+          }
+        });
+
+        // Listen for changes in system theme
+        window
+          .matchMedia("(prefers-color-scheme: dark)")
+          .addEventListener("change", (event) => {
+            if (!localStorage.getItem("theme")) {
+              if (event.matches) {
+                htmlElement.classList.add("theme-dark");
+                themeIcon.classList.remove("fa-moon");
+                themeIcon.classList.add("fa-sun");
+              } else {
+                htmlElement.classList.remove("theme-dark");
+                themeIcon.classList.remove("fa-sun");
+                themeIcon.classList.add("fa-moon");
+              }
+            }
+          });
+      });
+    </script>
+  </body>
 </html>
