@@ -269,11 +269,15 @@ body {
   border-radius: 12px;
   background-color: var(--hover-bg);
   margin-top: 16px;
-  border-left: 3px solid var(--primary-color);
+  border-left: 3px solid pink;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+}
+
+.note i {
+  color: pink;
 }
 
 .footer {
