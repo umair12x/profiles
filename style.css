@@ -54,11 +54,12 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.5;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px;
+  overflow-y: auto;
 }
 
 .page {
@@ -83,9 +84,9 @@ body {
 }
 
 .avatar-container {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 16px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 10px;
   position: relative;
 }
 
@@ -94,7 +95,7 @@ body {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.1);
   background: var(--gradient);
   display: flex;
   align-items: center;
@@ -106,8 +107,8 @@ body {
 
 .online-status {
   position: absolute;
-  bottom: 6px;
-  right: 6px;
+  bottom: 5px;
+  right: 18px;
   width: 18px;
   height: 18px;
   background-color: #10b981;
@@ -125,7 +126,7 @@ body {
 .role {
   font-size: 0.95rem;
   color: var(--primary-color);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   font-weight: 600;
 }
 
@@ -140,7 +141,7 @@ body {
 }
 
 .social-section {
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .section-title {
@@ -151,13 +152,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 5px;
 }
 
 .social-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 10px;
   margin-bottom: 20px;
 }
 
@@ -364,7 +365,7 @@ body {
   }
 
   .social-link {
-    padding: 12px 16px;
+    padding: 8px 14px;
   }
 
   .social-icon {
@@ -387,18 +388,18 @@ body {
 
   .actions {
     flex-direction: row;
-    margin: 24px 0;
+    margin: 20px 0;
   }
 
   .btn {
     flex: 1;
-    padding: 12px;
+    padding: 10px;
     font-size: 0.9rem;
   }
 
   .note {
     font-size: 0.85rem;
-    padding: 12px;
+    padding: 10px;
     justify-content: flex-start;
   }
 
