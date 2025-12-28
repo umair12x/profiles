@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Umair — Profile</title>
+    <link rel="stylesheet" href="profile-card.css" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <main class="page">
+        <section class="card" aria-label="Profile card for Umair">
+            <div class="card-media">
+                <img src="https://scontent.flyp7-1.fna.fbcdn.net/v/t39.30808-1/604788505_2088977845173675_1696366589512871547_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=106&ccb=1-7&_nc_sid=e99d92&_nc_ohc=aryBXPWgu_YQ7kNvwE-izla&_nc_oc=AdkmG7Dg_AOwhJNfG1VMZXDJD8XiIGqzz3gJ4FNh5YNJ50glx1eQ6VWigKYrZHLiorw&_nc_zt=24&_nc_ht=scontent.flyp7-1.fna&_nc_gid=ZOBzjif08C5vCucZ2-Nopg&oh=00_AfnDYlrNwjkvZnBDKmiefB0S1FowcQVAxj2uKFgYnFJgeQ&oe=695726AF" alt="Profile photo of Umair" class="avatar">
+            </div>
+            <div class="card-body">
+                <h1 class="display-name">Muhammad Umair</h1>
+                <p class="role">BSCS Student</p>
+                <p class="username">@umair12x</p>
+
+                <nav class="social" aria-label="Social links">
+                    <a class="social-link" href="https://facebook.com/umair12x" target="_blank" rel="noopener" aria-label="Facebook profile">
+                        <i class='bx bxl-facebook'></i>
+                        <span class="sr">Facebook</span>
+                    </a>
+                    <a class="social-link" href="https://instagram.com/umair12x" target="_blank" rel="noopener" aria-label="Instagram profile">
+                        <i class='bx bxl-instagram'></i>
+                        <span class="sr">Instagram</span>
+                    </a>
+                    <a class="social-link" href="https://x.com/umair12x" target="_blank" rel="noopener" aria-label="X profile">
+                        <i class='bx bxl-twitter'></i>
+                        <span class="sr">X</span>
+                    </a>
+                    <a class="social-link" href="https://github.com/umair12x" target="_blank" rel="noopener" aria-label="GitHub profile">
+                        <i class='bx bxl-github'></i>
+                        <span class="sr">GitHub</span>
+                    </a>
+                </nav>
+
+                <div class="actions">
+                    <a class="btn primary" href="https://wa.me/?text=Hi%20Umair%20(%40umair12x)%20—%20I%20found%20your%20profile" target="_blank" rel="noopener" aria-label="Message Umair on WhatsApp">Message on WhatsApp</a>
+                    <a class="btn outline" href="mailto:hello@umair12x.example" aria-label="Send email">Email</a>
+                </div>
+
+                <p class="note">Share or save this page to let people find my profiles across platforms.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Small enhancement: add prefers-color-scheme class to html for older browsers
+        try {
+            const isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.classList.toggle('theme-dark', isDark);
+        } catch (e) { /* ignore */ }
+    </script>
+</body>
+
+</html>
