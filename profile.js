@@ -1,10 +1,9 @@
-// Theme detection and toggle functionality
 document.addEventListener("DOMContentLoaded", function () {
   const themeToggle = document.getElementById("themeToggle");
   const themeIcon = document.getElementById("themeIcon");
   const htmlElement = document.documentElement;
 
-  // Check for saved theme preference or use device preference
+ 
   const savedTheme = localStorage.getItem("theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     themeIcon.classList.add("fa-sun");
   }
 
-  // Toggle theme when button is clicked
+  
   themeToggle.addEventListener("click", function () {
     htmlElement.classList.toggle("theme-dark");
 
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Listen for changes in system theme
+  
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", (event) => {
