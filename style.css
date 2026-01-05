@@ -54,7 +54,6 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.5;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -215,6 +214,10 @@ body {
 }
 .github {
   color: #333333;
+}
+.linkedin {
+  color: #0077b6;
+  
 }
 
 .actions {
