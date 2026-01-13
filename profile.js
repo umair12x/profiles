@@ -3,45 +3,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const themeIcon = document.getElementById("themeIcon");
   const htmlElement = document.documentElement;
 
- 
-  const savedTheme = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-  if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-    htmlElement.classList.add("theme-dark");
-    themeIcon.classList.remove("fa-moon");
-    themeIcon.classList.add("fa-sun");
+  function applyTheme(theme) {
+    if (theme === "dark") {
+      htmlElement.classList.add("theme-dark");
+      themeIcon.classList.replace("fa-moon", "fa-sun");
+    } else {
+      htmlElement.classList.remove("theme-dark");
+      themeIcon.classList.replace("fa-sun", "fa-moon");
+    }
   }
 
-  
-  themeToggle.addEventListener("click", function () {
-    htmlElement.classList.toggle("theme-dark");
+  function applySystemTheme() {
+    applyTheme(systemDark.matches ? "dark" : "light");
+  }
 
-    if (htmlElement.classList.contains("theme-dark")) {
-      localStorage.setItem("theme", "dark");
-      themeIcon.classList.remove("fa-moon");
-      themeIcon.classList.add("fa-sun");
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  } else {
+    applySystemTheme();
+  }
+
+  themeToggle.addEventListener("click", function () {
+    if (!localStorage.getItem("theme")) {
+      localStorage.setItem(
+        "theme",
+        htmlElement.classList.contains("theme-dark") ? "light" : "dark"
+      );
     } else {
-      localStorage.setItem("theme", "light");
-      themeIcon.classList.remove("fa-sun");
-      themeIcon.classList.add("fa-moon");
+      localStorage.removeItem("theme");
+      applySystemTheme();
+      return;
     }
+
+    applyTheme(localStorage.getItem("theme"));
   });
 
-  
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", (event) => {
-      if (!localStorage.getItem("theme")) {
-        if (event.matches) {
-          htmlElement.classList.add("theme-dark");
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
-        } else {
-          htmlElement.classList.remove("theme-dark");
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
-        }
-      }
-    });
+  systemDark.addEventListener("change", () => {
+    if (!localStorage.getItem("theme")) {
+      applySystemTheme();
+    }
+  });
 });
