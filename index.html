@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Umair — Full Stack Developer</title>
+    <title>Umair — Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,27 +16,14 @@
               'inter': ['Inter', 'sans-serif'],
             },
             colors: {
-              'primary': {
-                50: '#eff6ff',
-                100: '#dbeafe',
-                200: '#bfdbfe',
-                300: '#93c5fd',
-                400: '#60a5fa',
-                500: '#3b82f6',
-                600: '#2563eb',
-                700: '#1d4ed8',
-                800: '#1e40af',
-                900: '#1e3a8a',
-              },
-              'dark-bg': '#0f172a',
-              'dark-card': '#1e293b',
-              'dark-border': '#334155',
+              'primary': '#000000',
+              'secondary': '#ffffff',
             },
             animation: {
               'float': 'float 3s ease-in-out infinite',
-              'pulse-slow': 'pulse 3s ease-in-out infinite',
               'fade-in': 'fadeIn 0.8s ease-out',
               'slide-up': 'slideUp 0.6s ease-out',
+              'typewriter': 'typewriter 4s steps(40) 1s 1 normal both',
             },
             keyframes: {
               float: {
@@ -50,6 +37,10 @@
               slideUp: {
                 '0%': { opacity: '0', transform: 'translateY(30px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              typewriter: {
+                'from': { width: '0' },
+                'to': { width: '100%' },
               }
             }
           }
@@ -67,391 +58,475 @@
         font-family: 'Inter', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+      }
+      
+      .dark body {
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
       }
       
       .glass-effect {
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      
+      .dark .glass-effect {
+        background: rgba(20, 20, 20, 0.95);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255, 255, 255, 0.1);
       }
       
-      .dark .glass-effect {
-        background: rgba(30, 41, 59, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+      .monochrome-card {
+        background: white;
+        border: 2px solid #000;
+        box-shadow: 8px 8px 0 #000;
+      }
+      
+      .dark .monochrome-card {
+        background: #1a1a1a;
+        border: 2px solid #fff;
+        box-shadow: 8px 8px 0 rgba(255, 255, 255, 0.2);
+      }
+      
+      .hover-lift {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      
+      .hover-lift:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      
+      .dark .hover-lift:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+      
+      .border-dotted {
+        border-style: dotted !important;
+      }
+      
+      .accent-border {
+        position: relative;
+      }
+      
+      .accent-border::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #000, transparent);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+      
+      .dark .accent-border::after {
+        background: linear-gradient(90deg, transparent, #fff, transparent);
+      }
+      
+      .accent-border:hover::after {
+        transform: scaleX(1);
+      }
+      
+      .text-stroke {
+        -webkit-text-stroke: 1px #000;
+        color: transparent;
+      }
+      
+      .dark .text-stroke {
+        -webkit-text-stroke: 1px #fff;
       }
       
       .gradient-text {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #000 0%, #444 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
       
       .dark .gradient-text {
-        background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+        background: linear-gradient(135deg, #fff 0%, #888 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
       }
       
-      .gradient-bg {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      }
-      
-      .dark .gradient-bg {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      }
-      
-      .profile-gradient {
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-      }
-      
-      .dark .profile-gradient {
-        background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      }
-      
-      .shine-effect {
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .shine-effect::after {
-        content: '';
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          to right,
-          rgba(255, 255, 255, 0) 0%,
-          rgba(255, 255, 255, 0.1) 50%,
-          rgba(255, 255, 255, 0) 100%
-        );
-        transform: rotate(30deg);
-        transition: transform 0.6s;
-      }
-      
-      .shine-effect:hover::after {
-        transform: rotate(30deg) translate(10%, 10%);
-      }
-      
-      .card-shadow {
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-      }
-      
-      .dark .card-shadow {
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      }
-      
-      .social-glow {
-        transition: all 0.3s ease;
-      }
-      
-      .social-glow:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
-      }
-      
-      .dark .social-glow:hover {
-        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-      }
-      
-      .project-card {
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      }
-      
-      .project-card:hover {
-        transform: translateY(-8px);
-      }
-      
-      .border-glow {
-        border: 1px solid transparent;
-        background: linear-gradient(white, white) padding-box,
-                    linear-gradient(135deg, #667eea, #764ba2) border-box;
-      }
-      
-      .dark .border-glow {
-        background: linear-gradient(#1e293b, #1e293b) padding-box,
-                    linear-gradient(135deg, #60a5fa, #a78bfa) border-box;
-      }
-      
-      .online-pulse {
+      .pulse-dot {
         animation: pulse 2s infinite;
-        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
       }
       
       @keyframes pulse {
         0% {
-          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+          transform: scale(1);
+          opacity: 1;
         }
-        70% {
-          box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+        50% {
+          transform: scale(1.2);
+          opacity: 0.7;
         }
         100% {
-          box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+          transform: scale(1);
+          opacity: 1;
         }
       }
       
-      .text-glow {
-        text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+      .typewriter-text {
+        overflow: hidden;
+        border-right: 2px solid #000;
+        white-space: nowrap;
+        animation: typewriter 4s steps(40) 1s 1 normal both;
+      }
+      
+      .dark .typewriter-text {
+        border-right-color: #fff;
+      }
+      
+      .grid-pattern {
+        background-image: 
+          linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
+      }
+      
+      .dark .grid-pattern {
+        background-image: 
+          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      }
+      
+      .btn-monochrome {
+        position: relative;
+        overflow: hidden;
+        background: white;
+        color: black;
+        border: 2px solid black;
+        transition: all 0.3s ease;
+      }
+      
+      .btn-monochrome:hover {
+        background: black;
+        color: white;
+        transform: translateY(-2px);
+      }
+      
+      .dark .btn-monochrome {
+        background: #1a1a1a;
+        color: white;
+        border: 2px solid white;
+      }
+      
+      .dark .btn-monochrome:hover {
+        background: white;
+        color: black;
+      }
+      
+      .btn-monochrome::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+      }
+      
+      .btn-monochrome:hover::before {
+        left: 100%;
+      }
+      
+      .icon-container {
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: #f5f5f5;
+        border: 1px solid #e5e5e5;
+        transition: all 0.3s ease;
+      }
+      
+      .dark .icon-container {
+        background: #2a2a2a;
+        border: 1px solid #444;
+      }
+      
+      .icon-container:hover {
+        transform: rotate(5deg) scale(1.1);
+        background: #000;
+      }
+      
+      .dark .icon-container:hover {
+        background: #fff;
+      }
+      
+      .icon-container:hover i {
+        color: white !important;
+      }
+      
+      .dark .icon-container:hover i {
+        color: black !important;
       }
       
       ::selection {
-        background-color: rgba(59, 130, 246, 0.3);
+        background-color: rgba(0, 0, 0, 0.2);
+        color: #000;
       }
       
-      /* Smooth scroll */
+      .dark ::selection {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+      }
+      
       html {
         scroll-behavior: smooth;
       }
     </style>
   </head>
-  <body class="bg-gray-50 dark:bg-dark-bg text-gray-800 dark:text-gray-100 transition-colors duration-300 min-h-screen font-inter">
-    <!-- Animated Background Elements -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 dark:bg-purple-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-20 animate-float"></div>
-      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-20 animate-float" style="animation-delay: 1s;"></div>
-    </div>
-
+  <body class="bg-white dark:bg-black text-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen font-inter">
+    
+    <!-- Animated Grid Background -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none grid-pattern opacity-50"></div>
+    
     <!-- Theme Toggle -->
-    <button id="themeToggle" class="fixed top-6 right-6 z-50 w-14 h-14 rounded-full glass-effect flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group">
-      <i id="themeIcon" class="fas fa-moon text-gray-700 dark:text-yellow-300 text-xl transition-transform duration-300 group-hover:rotate-45"></i>
+    <button id="themeToggle" class="fixed top-6 right-6 z-50 w-12 h-12 rounded-full glass-effect flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-300 dark:border-gray-700">
+      <i id="themeIcon" class="fas fa-moon text-gray-800 dark:text-gray-300 text-lg transition-transform duration-300 group-hover:rotate-180"></i>
     </button>
 
     <!-- Main Content -->
     <div class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
-      <div class="w-full max-w-6xl animate-fade-in">
+      <div class="w-full max-w-4xl animate-fade-in">
         <!-- Main Card Container -->
-        <div class="rounded-3xl overflow-hidden border-glow card-shadow backdrop-blur-sm">
+        <div class="rounded-3xl monochrome-card overflow-hidden relative">
+          <!-- Decorative Corner Elements -->
+          <div class="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-black dark:border-white"></div>
+          <div class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-black dark:border-white"></div>
+          <div class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-black dark:border-white"></div>
+          <div class="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-black dark:border-white"></div>
+          
           <div class="flex flex-col lg:flex-row">
             
             <!-- Left Profile Section -->
-            <div class="lg:w-2/5 p-8 md:p-12 profile-gradient border-b lg:border-b-0 lg:border-r border-gray-200 dark:border-dark-border flex flex-col">
-              <!-- Avatar -->
-              <div class="relative mb-8 self-center lg:self-start">
-                <div class="relative w-48 h-48  rounded-full overflow-hidden border-4 border-white dark:border-dark-card shadow-2xl">
+            <div class="lg:w-2/5 p-8 md:p-10 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900 flex flex-col items-center lg:items-start border-b lg:border-b-0 lg:border-r border-gray-300 dark:border-gray-700">
+              
+              <!-- Avatar Container -->
+              <div class="relative mb-8">
+                <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white dark:border-black shadow-2xl">
                   <img 
                     src="/profile_pic_1.jpg" 
                     alt="Muhammad Umair"
                     class="w-full h-full object-cover"
-                    width="184.167"
-                    height="184.167"
+                    width="192"
+                    height="192"
                   >
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <!-- Color overlay only on image -->
+                  <div class="absolute inset-0 bg-gradient-to-t from-transparent to-transparent"></div>
                 </div>
-                <div class="absolute bottom-5 right-5 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-dark-card online-pulse" title="Online Now"></div>
+                <!-- Online Status -->
+                <div class="absolute bottom-4 right-4 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-black pulse-dot" title="Online"></div>
               </div>
 
               <!-- Personal Info -->
-              <div class="mb-8">
-                <h1 class="text-3xl md:text-4xl font-bold mb-3">Muhammad <span class="gradient-text">Umair</span></h1>
-                <div class="flex items-center flex-col gap-2 mb-4">
-                  <span class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300 rounded-full text-sm font-semibold border border-primary-200 dark:border-primary-800">
+              <div class="text-center lg:text-left mb-8 w-full">
+                <!-- Name with color -->
+                <h1 class="text-3xl md:text-4xl font-black mb-2">
+                  <span class="text-black dark:text-white">Muhammad </span>
+                  <span class="text-black dark:text-white font-extrabold italic">Umair</span>
+                </h1>
+                
+                <!-- Role badges -->
+                <div class="flex flex-col gap-2 mb-4 justify-center lg:justify-start">
+                  <span class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 rounded-full text-sm font-semibold border border-gray-300 dark:border-gray-700">
                     <i class="fas fa-graduation-cap mr-2"></i>BS Computer Science
                   </span>
-                  <span class="px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-300 rounded-full text-sm font-semibold border border-green-200 dark:border-green-800">
-                    <i class="fas fa-code mr-2"></i>Full Stack Dev
+                  <span class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 rounded-full text-sm font-semibold border border-gray-300 dark:border-gray-700">
+                    <i class="fas fa-code mr-2"></i>Full Stack Developer
                   </span>
                 </div>
-                <p class="text-gray-600 dark:text-gray-400 mb-6 gap-[1px] flex items-center">
-                  <i class="fas fa-at text-primary-500 "></i>
-                  <span class="font-medium">umair12x</span>
-                  <span class="mx-3">•</span>
-                  <span class="text-sm">All Platforms</span>
+                
+                <!-- Username -->
+                <p class="text-gray-700 dark:text-gray-400 mb-6 flex items-center justify-center lg:justify-start">
+                  <i class="fas fa-at mr-2 text-black dark:text-white"></i>
+                  <span class="font-bold text-black dark:text-white">umair12x</span>
+                  <span class="mx-3 text-gray-500">•</span>
+                  <span class="text-sm">Consistent Handle</span>
                 </p>
                 
-                <!-- Bio -->
-                <div class="glass-effect rounded-2xl p-6 mb-8">
+                <!-- Bio Card -->
+                <div class="glass-effect rounded-2xl p-6 mb-8 border border-gray-200 dark:border-gray-800">
                   <div class="flex items-start gap-3">
-                    <i class="fas fa-quote-left text-primary-400 text-xl mt-1"></i>
-                    <p class="text-gray-700 dark:text-gray-300 italic">
+                    <i class="fas fa-quote-left text-black dark:text-white text-xl mt-1"></i>
+                    <p class="text-gray-800 dark:text-gray-300 italic font-medium">
                       "Hoping for a chance to get her in this timeline, cause there's no other."
                     </p>
                   </div>
                   <div class="flex items-center gap-2 mt-4">
-                    <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                    <span class="text-xs text-gray-500 dark:text-gray-500 ml-auto">My Own Imaginations</span>
+                    <div class="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <div class="w-2 h-2 rounded-full bg-gray-400"></div>
+                    <span class="text-xs text-gray-600 dark:text-gray-500 ml-auto">Personal Mantra</span>
                   </div>
                 </div>
               </div>
 
               <!-- Contact Buttons -->
-              <div class="mt-auto space-y-4">
+              <div class="mt-auto space-y-4 w-full">
                 <a href="https://wa.me/923095330695?text=Assalam_O_Aliakum%20Umair,%20I%20found%20your%20profile" 
                    target="_blank" 
-                   class="shine-effect flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+                   class="btn-monochrome flex items-center justify-center gap-3 font-semibold py-4 px-6 rounded-2xl transition-all duration-300 hover-lift">
                   <i class="fab fa-whatsapp text-xl"></i>
                   <span>Message on WhatsApp</span>
-                  <i class="fas fa-external-link-alt ml-auto opacity-70"></i>
+                  <i class="fas fa-external-link-alt ml-auto"></i>
                 </a>
                 
                 <a href="mailto:umairim24@gmail.com"
-                   class="flex items-center justify-center gap-3 border-2 border-primary-500 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 font-semibold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:-translate-y-1">
+                   class="btn-monochrome flex items-center justify-center gap-3 font-semibold py-4 px-6 rounded-2xl transition-all duration-300 hover-lift">
                   <i class="fas fa-envelope-open-text"></i>
                   <span>Send Email</span>
-                  <i class="fas fa-paper-plane ml-auto opacity-70"></i>
+                  <i class="fas fa-paper-plane ml-auto"></i>
                 </a>
               </div>
             </div>
 
             <!-- Right Content Section -->
-            <div class="lg:w-3/5 p-8 md:p-12 bg-white dark:bg-dark-card">
-              <!-- Social Profiles -->
-              <div class="mb-12">
-                <div class="flex items-center justify-between mb-8">
-                  <h2 class="text-2xl md:text-3xl font-bold">
-                    <i class="fas fa-share-nodes gradient-text mr-3"></i>
-                    <span class="gradient-text">Connect Everywhere</span>
+            <div class="lg:w-3/5 p-8 md:p-10 bg-white dark:bg-black">
+              
+              <!-- Section Title -->
+              <div class="mb-10">
+                <div class="flex items-center gap-3 mb-6">
+                  <div class="w-10 h-0.5 bg-black dark:bg-white"></div>
+                  <h2 class="text-2xl md:text-3xl font-black tracking-tight">
+                    Digital <span class="text-black dark:text-white">Presence</span>
                   </h2>
-                 
+                  <div class="flex-1 h-0.5 bg-black dark:bg-white"></div>
                 </div>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <p class="text-gray-600 dark:text-gray-400 text-sm mb-8">
+                  Connect across platforms. Consistent username <span class="font-bold text-black dark:text-white">@umair12x</span>
+                </p>
+              </div>
 
-                  <a href="https://github.com/umair12x" target="_blank"
-                    class="flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-primary-400 dark:hover:border-primary-600 group">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-gray-900 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <i class="fab fa-github text-white text-xl sm:text-2xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">GitHub</h3>
-                      <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-primary-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs sm:text-sm"></i>
-                  </a>
-                
-                  <a href="https://linkedin.com/in/umair12x" target="_blank"
-                    class="flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-600 group">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-blue-600 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <i class="fab fa-linkedin-in text-white text-xl sm:text-2xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">LinkedIn</h3>
-                      <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs sm:text-sm"></i>
-                  </a>
-                
-                  <a href="https://x.com/umair12x" target="_blank"
-                    class="flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-gray-800 dark:hover:border-gray-500 group">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-black dark:bg-gray-900 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <i class="fab fa-twitter text-white text-xl sm:text-2xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">Twitter</h3>
-                      <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-gray-800 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs sm:text-sm"></i>
-                  </a>
-                
-                  <a href="https://instagram.com/umair12x" target="_blank"
-                    class="flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-pink-400 dark:hover:border-pink-700 group">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <i class="fab fa-instagram text-white text-xl sm:text-2xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">Instagram</h3>
-                      <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs sm:text-sm"></i>
-                  </a>
-                
-                  <a href="https://facebook.com/umair12x" target="_blank"
-                    class="flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-600 group">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-blue-500 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <i class="fab fa-facebook-f text-white text-xl sm:text-2xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">Facebook</h3>
-                      <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs sm:text-sm"></i>
-                  </a>
-                
-                  <a href="https://tiktok.com/@umair12x" target="_blank"
-                    class="flex items-center gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-gray-800 dark:hover:border-gray-500 group">
-                    <div class="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-gray-900 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                      <i class="fab fa-tiktok text-white text-xl sm:text-2xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-semibold text-gray-800 dark:text-gray-200 text-sm sm:text-base">TikTok</h3>
-                      <p class="text-xs sm:text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-gray-800 dark:text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs sm:text-sm"></i>
-                  </a>
-                
-                </div>
-                
-                
+              <!-- Social Grid -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                <!-- GitHub -->
+                <a href="https://github.com/umair12x" target="_blank"
+                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
+                  <div class="icon-container">
+                    <i class="fab fa-github text-black dark:text-white text-xl"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">GitHub</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://linkedin.com/in/umair12x" target="_blank"
+                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
+                  <div class="icon-container">
+                    <i class="fab fa-linkedin-in text-black dark:text-white text-xl"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">LinkedIn</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
+                </a>
+
+                <!-- Twitter -->
+                <a href="https://x.com/umair12x" target="_blank"
+                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
+                  <div class="icon-container">
+                    <i class="fab fa-twitter text-black dark:text-white text-xl"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">Twitter</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
+                </a>
+
+                <!-- Instagram -->
+                <a href="https://instagram.com/umair12x" target="_blank"
+                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
+                  <div class="icon-container">
+                    <i class="fab fa-instagram text-black dark:text-white text-xl"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">Instagram</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://facebook.com/umair12x" target="_blank"
+                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
+                  <div class="icon-container">
+                    <i class="fab fa-facebook-f text-black dark:text-white text-xl"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">Facebook</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
+                </a>
+
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@umair12x" target="_blank"
+                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
+                  <div class="icon-container">
+                    <i class="fab fa-tiktok text-black dark:text-white text-xl"></i>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">TikTok</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
+                  </div>
+                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
+                </a>
               </div>
 
               <!-- Projects Section -->
-              <div class="mb-10">
-                <div class="flex items-center justify-between mb-8">
-                  <h2 class="text-2xl md:text-3xl font-bold">
-                    <i class="fas fa-rocket gradient-text mr-3"></i>
-                    <span class="gradient-text">Featured Projects</span>
+              <div class="mb-8">
+                <div class="flex items-center gap-3 mb-6">
+                  <div class="w-10 h-0.5 bg-black dark:bg-white"></div>
+                  <h2 class="text-2xl md:text-3xl font-black tracking-tight">
+                    Notable <span class="text-black dark:text-white">Projects</span>
                   </h2>
-                  <span class="text-sm px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-300 rounded-full font-medium">
-                    <i class="fas fa-star mr-2"></i>Projects
-                  </span>
+                  <div class="flex-1 h-0.5 bg-black dark:bg-white"></div>
                 </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                  <!-- Project 1 -->
-                  <!-- <div class="project-card group bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-700">
-                    <div class="flex items-start justify-between mb-4">
-                      <div class="w-14 h-14 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                        <i class="fas fa-shopping-bag text-white text-2xl"></i>
-                      </div>
-                      <span class="text-xs px-3 py-1.5 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full">Live</span>
-                    </div>
-                    <h3 class="font-bold text-xl mb-3 text-gray-800 dark:text-gray-200">ShopEase Platform</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-5">A modern e-commerce solution with real-time inventory, payment integration, and admin dashboard.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                      <span class="px-3 py-1.5 bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 text-xs rounded-full font-medium">React</span>
-                      <span class="px-3 py-1.5 bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-300 text-xs rounded-full font-medium">Node.js</span>
-                      <span class="px-3 py-1.5 bg-purple-100 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 text-xs rounded-full font-medium">MongoDB</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <a href="#" class="text-primary-600 dark:text-primary-400 font-medium text-sm hover:underline flex items-center gap-2">
-                        View Project <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                      </a>
-                      <div class="flex items-center text-gray-500 dark:text-gray-500 text-sm">
-                        <i class="fas fa-star text-yellow-500 mr-1"></i> 4.8
-                      </div>
-                    </div>
-                  </div> -->
 
-                  <!-- Project 2 -->
-                  <div class="project-card group bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-700">
-                    <div class="flex items-start justify-between mb-4">
-                      <div class="w-14 h-14 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
-                        <i class="fas fa-chart-line text-white text-2xl"></i>
-                      </div>
-                      <span class="text-xs px-3 py-1.5 bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300 rounded-full">Completed</span>
+                <!-- Project Card -->
+                <div class="hover-lift group bg-gradient-to-br from-white to-gray-50 dark:from-black dark:to-gray-900 rounded-2xl p-6 border border-gray-300 dark:border-gray-700 mb-8">
+                  <div class="flex items-start justify-between mb-4">
+                    <div class="w-12 h-12 rounded-xl border-2 border-black dark:border-white flex items-center justify-center">
+                      <i class="fas fa-calculator text-black dark:text-white text-xl"></i>
                     </div>
-                    <h3 class="font-bold text-xl mb-3 text-gray-800 dark:text-gray-200">CGPA Calculator</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-5 font-light">Automatic CGPA Calculator for the University of Agriculture Faisalabad (UAF).
-                      <br>
-                      Manual CGPA Calculator for those a University that uses 4 GPA level system.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                      <span class="px-3 py-1.5 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-300 text-xs rounded-full font-medium">React.JS</span>
-                      <span class="px-3 py-1.5 bg-yellow-100 dark:bg-yellow-900/40 text-yellow-600 dark:text-yellow-300 text-xs rounded-full font-medium">Node.JS</span>
-                      <span class="px-3 py-1.5 bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-300 text-xs rounded-full font-medium">Express.JS</span>
-                      <span class="px-3 py-1.5 bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-300 text-xs rounded-full font-medium">PlayWright.Js</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <a href="https://uafcgpaharvester.vercel.app/" class="text-primary-600 dark:text-primary-400 font-medium text-sm hover:underline flex items-center gap-2">
-                        View Project <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                      </a>
-                    
-                    </div>
+                    <span class="text-xs px-3 py-1.5 border border-black dark:border-white rounded-full font-medium">
+                      Completed
+                    </span>
+                  </div>
+                  <h3 class="font-bold text-xl mb-3 text-gray-900 dark:text-gray-100">CGPA Calculator</h3>
+                  <p class="text-gray-700 dark:text-gray-400 text-sm mb-5 font-light leading-relaxed">
+                    Automatic CGPA Calculator for the University of Agriculture Faisalabad (UAF).
+                    Manual CGPA Calculator for universities using the 4.0 GPA system.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="px-3 py-1.5 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-400 text-xs rounded-full font-medium">React.JS</span>
+                    <span class="px-3 py-1.5 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-400 text-xs rounded-full font-medium">Node.JS</span>
+                    <span class="px-3 py-1.5 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-400 text-xs rounded-full font-medium">Express.JS</span>
+                    <span class="px-3 py-1.5 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-400 text-xs rounded-full font-medium">PlayWright.Js</span>
+                  </div>
+                  <div class="flex items-center justify-between">
+                    <a href="https://uafcgpaharvester.vercel.app/" target="_blank" class="font-medium text-sm hover:underline flex items-center gap-2 text-black dark:text-white">
+                      View Project <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                    <span class="text-xs text-gray-500 dark:text-gray-500 flex items-center">
+                      <i class="fas fa-clock mr-1"></i> 2024
+                    </span>
                   </div>
                 </div>
                 
@@ -459,7 +534,7 @@
                 <div class="text-center">
                   <a href="https://github.com/umair12x?tab=repositories" 
                      target="_blank" 
-                     class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white font-semibold rounded-2xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl hover:scale-105">
+                     class="btn-monochrome inline-flex items-center gap-3 px-8 py-4 font-semibold rounded-2xl transition-all duration-300 hover-lift">
                     <i class="fab fa-github text-xl"></i>
                     <span>Explore All Projects on GitHub</span>
                     <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
@@ -468,24 +543,24 @@
               </div>
 
               <!-- Footer -->
-              <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                  <div class="text-center md:text-left">
-                    <p class="text-gray-700 dark:text-gray-300 font-medium">
-                      <i class="fas fa-bolt text-yellow-500 mr-2"></i>
+              <div class="pt-8 border-t border-gray-300 dark:border-gray-700">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                  <div class="text-center sm:text-left">
+                    <p class="text-gray-800 dark:text-gray-300 font-medium">
+                      <i class="fas fa-code mr-2 text-black dark:text-white"></i>
                       Available for freelance & collaborations
                     </p>
-                    <p class="text-gray-500 dark:text-gray-500 text-sm mt-1">
-                      Connect with me on any platform @umair12x
+                    <p class="text-gray-600 dark:text-gray-500 text-sm mt-1">
+                      Connect: <span class="font-bold text-black dark:text-white">@umair12x</span> everywhere
                     </p>
                   </div>
-                  <div class="flex items-center flex-col gap-4">
-                    <div class="flex items-center ">
+                  <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <div class="flex items-center">
                       <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
-                      <span class="text-xs text-gray-600 dark:text-gray-400">Active: Yes</span>
+                      <span class="text-xs text-gray-600 dark:text-gray-400">Active Status</span>
                     </div>
-                    <div class="text-gray-500 dark:text-gray-500 text-sm">
-                      <i class="fas fa-heart text-red-500 mr-1"></i> Crafted with passion
+                    <div class="text-gray-600 dark:text-gray-500 text-sm">
+                      <i class="fas fa-heart mr-1 text-black dark:text-white"></i> Minimal Design
                     </div>
                   </div>
                 </div>
@@ -493,26 +568,22 @@
             </div>
           </div>
         </div>
-        
-        <!-- Stats Bar -->
-        <!-- <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div class="glass-effect rounded-2xl p-6 text-center">
-            <div class="text-3xl font-bold gradient-text mb-2">4+</div>
-            <div class="text-gray-600 dark:text-gray-400 text-sm">Projects</div>
+
+        <!-- Stats / Additional Info -->
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div class="glass-effect rounded-2xl p-6 text-center border border-gray-300 dark:border-gray-700">
+            <div class="text-2xl font-black mb-2 text-black dark:text-white">6</div>
+            <div class="text-gray-700 dark:text-gray-400 text-sm">Social Platforms</div>
           </div>
-          <div class="glass-effect rounded-2xl p-6 text-center">
-            <div class="text-3xl font-bold gradient-text mb-2">6</div>
-            <div class="text-gray-600 dark:text-gray-400 text-sm">Social Platforms</div>
+          <div class="glass-effect rounded-2xl p-6 text-center border border-gray-300 dark:border-gray-700">
+            <div class="text-2xl font-black mb-2 text-black dark:text-white">24/7</div>
+            <div class="text-gray-700 dark:text-gray-400 text-sm">Response Time</div>
           </div>
-          <div class="glass-effect rounded-2xl p-6 text-center">
-            <div class="text-3xl font-bold gradient-text mb-2">100%</div>
-            <div class="text-gray-600 dark:text-gray-400 text-sm">Response Rate</div>
+          <div class="glass-effect rounded-2xl p-6 text-center border border-gray-300 dark:border-gray-700">
+            <div class="text-2xl font-black mb-2 text-black dark:text-white">100%</div>
+            <div class="text-gray-700 dark:text-gray-400 text-sm">Handle Consistency</div>
           </div>
-          <div class="glass-effect rounded-2xl p-6 text-center">
-            <div class="text-3xl font-bold gradient-text mb-2">24/7</div>
-            <div class="text-gray-600 dark:text-gray-400 text-sm">Availability</div>
-          </div>
-        </div> -->
+        </div>
       </div>
     </div>
 
@@ -539,8 +610,8 @@
           htmlElement.classList.add("dark");
           themeIcon.classList.remove("fa-moon");
           themeIcon.classList.add("fa-sun");
-          themeIcon.classList.add("text-yellow-300");
-          themeIcon.classList.remove("text-gray-700");
+          themeIcon.classList.add("text-gray-300");
+          themeIcon.classList.remove("text-gray-800");
           localStorage.setItem("theme", "dark");
         }
         
@@ -548,9 +619,9 @@
         function enableLightMode() {
           htmlElement.classList.remove("dark");
           themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.remove("text-yellow-300");
+          themeIcon.classList.remove("text-gray-300");
           themeIcon.classList.add("fa-moon");
-          themeIcon.classList.add("text-gray-700");
+          themeIcon.classList.add("text-gray-800");
           localStorage.setItem("theme", "light");
         }
         
@@ -562,59 +633,75 @@
             enableDarkMode();
           }
           
-          // Add click animation
+          // Click animation
           this.classList.add("scale-90");
-          setTimeout(() => {
-            this.classList.remove("scale-90");
-          }, 150);
+          setTimeout(() => this.classList.remove("scale-90"), 150);
         });
         
-        // Listen for system theme changes
+        // System theme listener
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
           if (!localStorage.getItem("theme")) {
-            if (e.matches) {
-              enableDarkMode();
-            } else {
-              enableLightMode();
-            }
+            e.matches ? enableDarkMode() : enableLightMode();
           }
         });
         
-        // Initialize on load
+        // Initialize
         initTheme();
         
-        // Add animation to project cards on scroll
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        };
-        
+        // Add intersection observer for animations
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              entry.target.style.animationDelay = `${entry.target.dataset.delay || 0}s`;
-              entry.target.classList.add('animate-slide-up');
-              observer.unobserve(entry.target);
+              entry.target.classList.add('animate-fade-in');
             }
           });
-        }, observerOptions);
+        }, { threshold: 0.1 });
         
-        // Observe project cards
-        document.querySelectorAll('.project-card').forEach((card, index) => {
-          card.dataset.delay = index * 0.1;
-          observer.observe(card);
-        });
+        // Observe elements
+        document.querySelectorAll('.hover-lift').forEach(el => observer.observe(el));
         
-        // Add hover sound effect for buttons (optional)
+        // Add ripple effect to buttons
         const buttons = document.querySelectorAll('a, button');
         buttons.forEach(button => {
-          button.addEventListener('mouseenter', () => {
-            button.classList.add('ring-2', 'ring-opacity-50');
-            setTimeout(() => {
-              button.classList.remove('ring-2', 'ring-opacity-50');
-            }, 300);
+          button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size/2;
+            const y = e.clientY - rect.top - size/2;
+            
+            ripple.style.cssText = `
+              position: absolute;
+              border-radius: 50%;
+              background: rgba(0, 0, 0, 0.2);
+              transform: scale(0);
+              animation: ripple 0.6s linear;
+              width: ${size}px;
+              height: ${size}px;
+              top: ${y}px;
+              left: ${x}px;
+              pointer-events: none;
+            `;
+            
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
           });
         });
+        
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+          @keyframes ripple {
+            to {
+              transform: scale(4);
+              opacity: 0;
+            }
+          }
+        `;
+        document.head.appendChild(style);
       });
     </script>
   </body>
