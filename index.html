@@ -6,561 +6,743 @@
     <title>Umair — Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
-              'inter': ['Inter', 'sans-serif'],
+              'nunito': ['Nunito', 'sans-serif'],
             },
             colors: {
-              'primary': '#000000',
-              'secondary': '#ffffff',
+              'clay-light': '#fef9f3',
+              'clay-cream': '#fdf4e8',
+              'clay-peach': '#ffd4a3',
+              'clay-coral': '#ff9e7d',
+              'clay-lavender': '#e8d5f2',
+              'clay-mint': '#d4f2e3',
+              'clay-sky': '#d4e8f2',
+              'clay-dark': '#2d2a3e',
+              'clay-darker': '#1a1825',
+            },
+            boxShadow: {
+              'clay': 'inset -8px -8px 16px rgba(0,0,0,0.1), inset 8px 8px 16px rgba(255,255,255,0.7), 12px 12px 24px rgba(0,0,0,0.15)',
+              'clay-dark': 'inset -8px -8px 16px rgba(0,0,0,0.5), inset 8px 8px 16px rgba(255,255,255,0.1), 12px 12px 24px rgba(0,0,0,0.4)',
+              'clay-btn': 'inset -4px -4px 8px rgba(0,0,0,0.1), inset 4px 4px 8px rgba(255,255,255,0.7), 8px 8px 16px rgba(0,0,0,0.15), -4px -4px 12px rgba(255,255,255,0.8)',
+              'clay-btn-dark': 'inset -4px -4px 8px rgba(0,0,0,0.5), inset 4px 4px 8px rgba(255,255,255,0.1), 8px 8px 16px rgba(0,0,0,0.4)',
+              'clay-card': 'inset -6px -6px 12px rgba(0,0,0,0.08), inset 6px 6px 12px rgba(255,255,255,0.6), 16px 16px 32px rgba(0,0,0,0.12)',
+              'clay-card-dark': 'inset -6px -6px 12px rgba(0,0,0,0.4), inset 6px 6px 12px rgba(255,255,255,0.05), 16px 16px 32px rgba(0,0,0,0.4)',
+              'clay-inset': 'inset 4px 4px 8px rgba(0,0,0,0.1), inset -4px -4px 8px rgba(255,255,255,0.7)',
+              'clay-inset-dark': 'inset 4px 4px 8px rgba(0,0,0,0.5), inset -4px -4px 8px rgba(255,255,255,0.05)',
             },
             animation: {
-              'float': 'float 3s ease-in-out infinite',
-              'fade-in': 'fadeIn 0.8s ease-out',
+              'float': 'float 4s ease-in-out infinite',
+              'float-delayed': 'float 4s ease-in-out 1s infinite',
+              'blob': 'blob 8s infinite',
+              'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+              'bounce-soft': 'bounceSoft 2s ease-in-out infinite',
               'slide-up': 'slideUp 0.6s ease-out',
-              'typewriter': 'typewriter 4s steps(40) 1s 1 normal both',
+              'scale-in': 'scaleIn 0.5s ease-out',
             },
             keyframes: {
               float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
+                '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                '50%': { transform: 'translateY(-15px) rotate(2deg)' },
               },
-              fadeIn: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
+              blob: {
+                '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                '100%': { transform: 'translate(0px, 0px) scale(1)' },
+              },
+              pulseSoft: {
+                '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+                '50%': { transform: 'scale(1.05)', opacity: '0.9' },
+              },
+              bounceSoft: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-8px)' },
               },
               slideUp: {
                 '0%': { opacity: '0', transform: 'translateY(30px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
               },
-              typewriter: {
-                'from': { width: '0' },
-                'to': { width: '100%' },
-              }
+              scaleIn: {
+                '0%': { opacity: '0', transform: 'scale(0.9)' },
+                '100%': { opacity: '1', transform: 'scale(1)' },
+              },
             }
           }
         }
       }
     </script>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-      
       * {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Nunito', sans-serif;
       }
-      
+
       body {
-        font-family: 'Inter', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
       }
-      
-      .dark body {
-        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+
+      /* Claymorphism Base Styles */
+      .clay-card {
+        border-radius: 30px;
+        background: linear-gradient(145deg, #ffffff, #f0f0f0);
+        box-shadow: 
+          inset -8px -8px 16px rgba(0,0,0,0.08),
+          inset 8px 8px 16px rgba(255,255,255,0.9),
+          20px 20px 40px rgba(0,0,0,0.12),
+          -10px -10px 30px rgba(255,255,255,0.8);
+        border: 3px solid rgba(255,255,255,0.6);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      
-      .glass-effect {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(0, 0, 0, 0.1);
+
+      .dark .clay-card {
+        background: linear-gradient(145deg, #3d3a52, #2d2a3e);
+        box-shadow: 
+          inset -8px -8px 16px rgba(0,0,0,0.5),
+          inset 8px 8px 16px rgba(255,255,255,0.05),
+          20px 20px 40px rgba(0,0,0,0.4),
+          -10px -10px 30px rgba(255,255,255,0.02);
+        border: 3px solid rgba(255,255,255,0.08);
       }
-      
-      .dark .glass-effect {
-        background: rgba(20, 20, 20, 0.95);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+
+      .clay-btn {
+        border-radius: 20px;
+        background: linear-gradient(145deg, #ffffff, #e6e6e6);
+        box-shadow: 
+          inset -4px -4px 8px rgba(0,0,0,0.08),
+          inset 4px 4px 8px rgba(255,255,255,0.9),
+          8px 8px 16px rgba(0,0,0,0.12),
+          -4px -4px 12px rgba(255,255,255,0.8);
+        border: 2px solid rgba(255,255,255,0.6);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
       }
-      
-      .monochrome-card {
-        background: white;
-        border: 2px solid #000;
-        box-shadow: 8px 8px 0 #000;
+
+      .dark .clay-btn {
+        background: linear-gradient(145deg, #4a4760, #3d3a52);
+        box-shadow: 
+          inset -4px -4px 8px rgba(0,0,0,0.5),
+          inset 4px 4px 8px rgba(255,255,255,0.05),
+          8px 8px 16px rgba(0,0,0,0.4),
+          -4px -4px 12px rgba(255,255,255,0.02);
+        border: 2px solid rgba(255,255,255,0.08);
       }
-      
-      .dark .monochrome-card {
-        background: #1a1a1a;
-        border: 2px solid #fff;
-        box-shadow: 8px 8px 0 rgba(255, 255, 255, 0.2);
+
+      .clay-btn:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 
+          inset -4px -4px 8px rgba(0,0,0,0.08),
+          inset 4px 4px 8px rgba(255,255,255,0.9),
+          12px 12px 24px rgba(0,0,0,0.15),
+          -6px -6px 18px rgba(255,255,255,0.9);
       }
-      
-      .hover-lift {
+
+      .dark .clay-btn:hover {
+        box-shadow: 
+          inset -4px -4px 8px rgba(0,0,0,0.5),
+          inset 4px 4px 8px rgba(255,255,255,0.05),
+          12px 12px 24px rgba(0,0,0,0.5),
+          -6px -6px 18px rgba(255,255,255,0.03);
+      }
+
+      .clay-btn:active {
+        transform: translateY(2px) scale(0.98);
+        box-shadow: 
+          inset 4px 4px 8px rgba(0,0,0,0.12),
+          inset -4px -4px 8px rgba(255,255,255,0.7);
+      }
+
+      .dark .clay-btn:active {
+        box-shadow: 
+          inset 4px 4px 8px rgba(0,0,0,0.6),
+          inset -4px -4px 8px rgba(255,255,255,0.02);
+      }
+
+      .clay-avatar {
+        border-radius: 50%;
+        background: linear-gradient(145deg, #ffffff, #e6e6e6);
+        box-shadow: 
+          inset -6px -6px 12px rgba(0,0,0,0.08),
+          inset 6px 6px 12px rgba(255,255,255,0.9),
+          16px 16px 32px rgba(0,0,0,0.12),
+          -8px -8px 24px rgba(255,255,255,0.8);
+        border: 4px solid rgba(255,255,255,0.6);
+        padding: 8px;
+      }
+
+      .dark .clay-avatar {
+        background: linear-gradient(145deg, #4a4760, #3d3a52);
+        box-shadow: 
+          inset -6px -6px 12px rgba(0,0,0,0.5),
+          inset 6px 6px 12px rgba(255,255,255,0.05),
+          16px 16px 32px rgba(0,0,0,0.4),
+          -8px -8px 24px rgba(255,255,255,0.02);
+        border: 4px solid rgba(255,255,255,0.08);
+      }
+
+      .clay-badge {
+        border-radius: 50px;
+        background: linear-gradient(145deg, #ffd4a3, #ff9e7d);
+        box-shadow: 
+          inset -3px -3px 6px rgba(0,0,0,0.1),
+          inset 3px 3px 6px rgba(255,255,255,0.4),
+          6px 6px 12px rgba(0,0,0,0.1);
+        border: 2px solid rgba(255,255,255,0.4);
+      }
+
+      .dark .clay-badge {
+        background: linear-gradient(145deg, #5a4a6a, #4a3a5a);
+        box-shadow: 
+          inset -3px -3px 6px rgba(0,0,0,0.4),
+          inset 3px 3px 6px rgba(255,255,255,0.05),
+          6px 6px 12px rgba(0,0,0,0.3);
+        border: 2px solid rgba(255,255,255,0.05);
+      }
+
+      .clay-icon {
+        border-radius: 16px;
+        background: linear-gradient(145deg, #ffffff, #e6e6e6);
+        box-shadow: 
+          inset -3px -3px 6px rgba(0,0,0,0.08),
+          inset 3px 3px 6px rgba(255,255,255,0.9),
+          6px 6px 12px rgba(0,0,0,0.1),
+          -3px -3px 9px rgba(255,255,255,0.8);
+        border: 2px solid rgba(255,255,255,0.5);
+        transition: all 0.3s ease;
+      }
+
+      .dark .clay-icon {
+        background: linear-gradient(145deg, #4a4760, #3d3a52);
+        box-shadow: 
+          inset -3px -3px 6px rgba(0,0,0,0.4),
+          inset 3px 3px 6px rgba(255,255,255,0.05),
+          6px 6px 12px rgba(0,0,0,0.3),
+          -3px -3px 9px rgba(255,255,255,0.02);
+        border: 2px solid rgba(255,255,255,0.05);
+      }
+
+      .clay-icon:hover {
+        transform: translateY(-3px) rotate(5deg);
+        box-shadow: 
+          inset -3px -3px 6px rgba(0,0,0,0.08),
+          inset 3px 3px 6px rgba(255,255,255,0.9),
+          10px 10px 20px rgba(0,0,0,0.12),
+          -5px -5px 15px rgba(255,255,255,0.9);
+      }
+
+      .clay-input {
+        border-radius: 20px;
+        background: linear-gradient(145deg, #f0f0f0, #ffffff);
+        box-shadow: 
+          inset 4px 4px 8px rgba(0,0,0,0.08),
+          inset -4px -4px 8px rgba(255,255,255,0.9);
+        border: 2px solid rgba(255,255,255,0.5);
+      }
+
+      .dark .clay-input {
+        background: linear-gradient(145deg, #2d2a3e, #3d3a52);
+        box-shadow: 
+          inset 4px 4px 8px rgba(0,0,0,0.4),
+          inset -4px -4px 8px rgba(255,255,255,0.02);
+        border: 2px solid rgba(255,255,255,0.05);
+      }
+
+      /* Animated Background Blobs */
+      .blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.6;
+        animation: blob 8s infinite;
+        pointer-events: none;
+      }
+
+      .blob-1 {
+        width: 400px;
+        height: 400px;
+        background: linear-gradient(135deg, #ffd4a3, #ff9e7d);
+        top: -100px;
+        left: -100px;
+        animation-delay: 0s;
+      }
+
+      .blob-2 {
+        width: 350px;
+        height: 350px;
+        background: linear-gradient(135deg, #e8d5f2, #d4e8f2);
+        bottom: -50px;
+        right: -50px;
+        animation-delay: 2s;
+      }
+
+      .blob-3 {
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, #d4f2e3, #d4e8f2);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-delay: 4s;
+      }
+
+      .dark .blob-1 {
+        background: linear-gradient(135deg, #5a4a6a, #4a3a5a);
+        opacity: 0.4;
+      }
+
+      .dark .blob-2 {
+        background: linear-gradient(135deg, #3a4a5a, #4a5a6a);
+        opacity: 0.4;
+      }
+
+      .dark .blob-3 {
+        background: linear-gradient(135deg, #4a5a4a, #3a5a5a);
+        opacity: 0.4;
+      }
+
+      /* Status Indicator */
+      .status-dot {
+        animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+      }
+
+      @keyframes pulse-ring {
+        0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+        70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+      }
+
+      /* Scrollbar Styling */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(145deg, #ffd4a3, #ff9e7d);
+        border-radius: 10px;
+        border: 3px solid #f1f1f1;
+      }
+
+      .dark ::-webkit-scrollbar-track {
+        background: #2d2a3e;
+      }
+
+      .dark ::-webkit-scrollbar-thumb {
+        background: linear-gradient(145deg, #4a4760, #3d3a52);
+        border: 3px solid #2d2a3e;
+      }
+
+      /* Selection */
+      ::selection {
+        background: linear-gradient(135deg, #ffd4a3, #ff9e7d);
+        color: #2d2a3e;
+      }
+
+      .dark ::selection {
+        background: linear-gradient(135deg, #5a4a6a, #4a3a5a);
+        color: #ffffff;
+      }
+
+      /* Float Animation for Cards */
+      .float-card {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .float-card:nth-child(2) {
+        animation-delay: 1s;
+      }
+
+      .float-card:nth-child(3) {
+        animation-delay: 2s;
+      }
+
+      /* Gradient Text */
+      .gradient-text {
+        background: linear-gradient(135deg, #ff9e7d 0%, #e8d5f2 50%, #d4e8f2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .dark .gradient-text {
+        background: linear-gradient(135deg, #ffd4a3 0%, #e8d5f2 50%, #d4f2e3 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Theme Toggle Clay Style */
+      .theme-toggle-clay {
+        border-radius: 50%;
+        background: linear-gradient(145deg, #ffffff, #e6e6e6);
+        box-shadow: 
+          inset -3px -3px 6px rgba(0,0,0,0.08),
+          inset 3px 3px 6px rgba(255,255,255,0.9),
+          8px 8px 16px rgba(0,0,0,0.12),
+          -4px -4px 12px rgba(255,255,255,0.8);
+        border: 3px solid rgba(255,255,255,0.6);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .dark .theme-toggle-clay {
+        background: linear-gradient(145deg, #4a4760, #3d3a52);
+        box-shadow: 
+          inset -3px -3px 6px rgba(0,0,0,0.5),
+          inset 3px 3px 6px rgba(255,255,255,0.05),
+          8px 8px 16px rgba(0,0,0,0.4),
+          -4px -4px 12px rgba(255,255,255,0.02);
+        border: 3px solid rgba(255,255,255,0.08);
+      }
+
+      .theme-toggle-clay:hover {
+        transform: rotate(180deg) scale(1.1);
+      }
+
+      /* Project Card Special */
+      .project-clay {
+        background: linear-gradient(145deg, #fff8f0, #ffe8d6);
+      }
+
+      .dark .project-clay {
+        background: linear-gradient(145deg, #4a4760, #3d3a52);
+      }
+
+      /* Social Link Hover Effect */
+      .social-link {
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
-      
-      .hover-lift:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+      .social-link:hover {
+        transform: translateY(-5px) scale(1.02);
       }
-      
-      .dark .hover-lift:hover {
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+      .social-link:hover .clay-icon {
+        transform: rotate(10deg) scale(1.1);
       }
-      
-      .border-dotted {
-        border-style: dotted !important;
+
+      /* Tag/Chip Style */
+      .clay-chip {
+        border-radius: 50px;
+        background: linear-gradient(145deg, #e8d5f2, #d4c4e0);
+        box-shadow: 
+          inset -2px -2px 4px rgba(0,0,0,0.05),
+          inset 2px 2px 4px rgba(255,255,255,0.6),
+          3px 3px 6px rgba(0,0,0,0.08);
+        border: 1px solid rgba(255,255,255,0.4);
       }
-      
-      .accent-border {
-        position: relative;
+
+      .dark .clay-chip {
+        background: linear-gradient(145deg, #4a4760, #3d3a52);
+        box-shadow: 
+          inset -2px -2px 4px rgba(0,0,0,0.3),
+          inset 2px 2px 4px rgba(255,255,255,0.02),
+          3px 3px 6px rgba(0,0,0,0.2);
+        border: 1px solid rgba(255,255,255,0.05);
       }
-      
-      .accent-border::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #000, transparent);
-        transform: scaleX(0);
-        transition: transform 0.3s ease;
+
+      /* Stats Card */
+      .stat-clay {
+        background: linear-gradient(145deg, #d4f2e3, #c4e8d3);
       }
-      
-      .dark .accent-border::after {
-        background: linear-gradient(90deg, transparent, #fff, transparent);
+
+      .dark .stat-clay {
+        background: linear-gradient(145deg, #4a5a4a, #3d4a3d);
       }
-      
-      .accent-border:hover::after {
-        transform: scaleX(1);
+
+      /* Quote Card */
+      .quote-clay {
+        background: linear-gradient(145deg, #d4e8f2, #c4d8e8);
       }
-      
-      .text-stroke {
-        -webkit-text-stroke: 1px #000;
-        color: transparent;
-      }
-      
-      .dark .text-stroke {
-        -webkit-text-stroke: 1px #fff;
-      }
-      
-      .gradient-text {
-        background: linear-gradient(135deg, #000 0%, #444 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      
-      .dark .gradient-text {
-        background: linear-gradient(135deg, #fff 0%, #888 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-      
-      .pulse-dot {
-        animation: pulse 2s infinite;
-      }
-      
-      @keyframes pulse {
-        0% {
-          transform: scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: scale(1.2);
-          opacity: 0.7;
-        }
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-      }
-      
-      .typewriter-text {
-        overflow: hidden;
-        border-right: 2px solid #000;
-        white-space: nowrap;
-        animation: typewriter 4s steps(40) 1s 1 normal both;
-      }
-      
-      .dark .typewriter-text {
-        border-right-color: #fff;
-      }
-      
-      .grid-pattern {
-        background-image: 
-          linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-        background-size: 20px 20px;
-      }
-      
-      .dark .grid-pattern {
-        background-image: 
-          linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      }
-      
-      .btn-monochrome {
-        position: relative;
-        overflow: hidden;
-        background: white;
-        color: black;
-        border: 2px solid black;
-        transition: all 0.3s ease;
-      }
-      
-      .btn-monochrome:hover {
-        background: black;
-        color: white;
-        transform: translateY(-2px);
-      }
-      
-      .dark .btn-monochrome {
-        background: #1a1a1a;
-        color: white;
-        border: 2px solid white;
-      }
-      
-      .dark .btn-monochrome:hover {
-        background: white;
-        color: black;
-      }
-      
-      .btn-monochrome::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s ease;
-      }
-      
-      .btn-monochrome:hover::before {
-        left: 100%;
-      }
-      
-      .icon-container {
-        width: 48px;
-        height: 48px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 12px;
-        background: #f5f5f5;
-        border: 1px solid #e5e5e5;
-        transition: all 0.3s ease;
-      }
-      
-      .dark .icon-container {
-        background: #2a2a2a;
-        border: 1px solid #444;
-      }
-      
-      .icon-container:hover {
-        transform: rotate(5deg) scale(1.1);
-        background: #000;
-      }
-      
-      .dark .icon-container:hover {
-        background: #fff;
-      }
-      
-      .icon-container:hover i {
-        color: white !important;
-      }
-      
-      .dark .icon-container:hover i {
-        color: black !important;
-      }
-      
-      ::selection {
-        background-color: rgba(0, 0, 0, 0.2);
-        color: #000;
-      }
-      
-      .dark ::selection {
-        background-color: rgba(255, 255, 255, 0.2);
-        color: #fff;
-      }
-      
-      html {
-        scroll-behavior: smooth;
+
+      .dark .quote-clay {
+        background: linear-gradient(145deg, #3a4a5a, #2d3a4a);
       }
     </style>
-  </head>
-  <body class="bg-white dark:bg-black text-gray-900 dark:text-gray-100 transition-colors duration-300 min-h-screen font-inter">
-    
-    <!-- Animated Grid Background -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none grid-pattern opacity-50"></div>
-    
+  <base target="_blank">
+</head>
+  <body class="bg-clay-light dark:bg-clay-darker text-gray-800 dark:text-gray-100 transition-colors duration-500 min-h-screen font-nunito overflow-x-hidden">
+
+    <!-- Animated Background Blobs -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
     <!-- Theme Toggle -->
-    <button id="themeToggle" class="fixed top-6 right-6 z-50 w-12 h-12 rounded-full glass-effect flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group border border-gray-300 dark:border-gray-700">
-      <i id="themeIcon" class="fas fa-moon text-gray-800 dark:text-gray-300 text-lg transition-transform duration-300 group-hover:rotate-180"></i>
+    <button id="themeToggle" class="fixed top-6 right-6 z-50 w-14 h-14 theme-toggle-clay flex items-center justify-center group">
+      <i id="themeIcon" class="fas fa-moon text-gray-700 dark:text-yellow-300 text-xl transition-all duration-500 group-hover:scale-110"></i>
     </button>
 
     <!-- Main Content -->
     <div class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
-      <div class="w-full max-w-4xl animate-fade-in">
-        <!-- Main Card Container -->
-        <div class="rounded-3xl monochrome-card overflow-hidden relative">
-          <!-- Decorative Corner Elements -->
-          <div class="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-black dark:border-white"></div>
-          <div class="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-black dark:border-white"></div>
-          <div class="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-black dark:border-white"></div>
-          <div class="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-black dark:border-white"></div>
-          
-          <div class="flex flex-col lg:flex-row">
-            
-            <!-- Left Profile Section -->
-            <div class="lg:w-2/5 p-8 md:p-10 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900 flex flex-col items-center lg:items-start border-b lg:border-b-0 lg:border-r border-gray-300 dark:border-gray-700">
-              
-              <!-- Avatar Container -->
-              <div class="relative mb-8">
-                <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-white dark:border-black shadow-2xl">
-                  <img 
-                    src="./profile_pic_1.jpg" 
-                    alt="Muhammad Umair"
-                    class="w-full h-full object-cover"
-                    width="192"
-                    height="192"
-                  >
-                  <!-- Color overlay only on image -->
-                  <div class="absolute inset-0 bg-gradient-to-t from-transparent to-transparent"></div>
-                </div>
-                <!-- Online Status -->
-                <div class="absolute bottom-4 right-4 w-4 h-4 bg-green-500 rounded-full border-4 border-white dark:border-black pulse-dot" title="Online"></div>
-              </div>
+      <div class="w-full max-w-5xl animate-scale-in">
 
-              <!-- Personal Info -->
-              <div class="text-center lg:text-left mb-8 w-full">
-                <!-- Name with color -->
-                <h1 class="text-3xl md:text-4xl font-black mb-2">
-                  <span class="text-black dark:text-white">Muhammad </span>
-                  <span class="text-black dark:text-white font-extrabold italic">Umair</span>
-                </h1>
-                
-                <!-- Role badges -->
-                <div class="flex flex-col gap-2 mb-4 justify-center lg:justify-start">
-                  <span class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 rounded-full text-sm font-semibold border border-gray-300 dark:border-gray-700">
-                    <i class="fas fa-graduation-cap mr-2"></i>BS Computer Science
-                  </span>
-                  <span class="px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 rounded-full text-sm font-semibold border border-gray-300 dark:border-gray-700">
-                    <i class="fas fa-code mr-2"></i>Full Stack Developer
-                  </span>
-                </div>
-                
-                <!-- Username -->
-                <p class="text-gray-700 dark:text-gray-400 mb-6 flex items-center justify-center lg:justify-start">
-                  <i class="fas fa-at mr-2 text-black dark:text-white"></i>
-                  <span class="font-bold text-black dark:text-white">umair12x</span>
-                  <span class="mx-3 text-gray-500">•</span>
-                  <span class="text-sm">Consistent Handle</span>
-                </p>
-                
-                <!-- Bio Card -->
-                <div class="glass-effect rounded-2xl p-6 mb-8 border border-gray-200 dark:border-gray-800">
-                  <div class="flex items-start gap-3">
-                    <i class="fas fa-quote-left text-black dark:text-white text-xl mt-1"></i>
-                    <p class="text-gray-800 dark:text-gray-300 italic font-medium">
-                      "Hoping for a chance to get her in this timeline, cause there's no other."
-                    </p>
-                  </div>
-                  <div class="flex items-center gap-2 mt-4">
-                    <div class="w-2 h-2 rounded-full bg-gray-400"></div>
-                    <div class="w-2 h-2 rounded-full bg-gray-400"></div>
-                    <div class="w-2 h-2 rounded-full bg-gray-400"></div>
-                    <span class="text-xs text-gray-600 dark:text-gray-500 ml-auto">Personal Mantra</span>
-                  </div>
-                </div>
-              </div>
+        <!-- Main Clay Card Container -->
+        <div class="clay-card p-2 md:p-4">
+          <div class="bg-white/50 dark:bg-clay-dark/50 rounded-[24px] p-6 md:p-10 backdrop-blur-sm">
+            <div class="flex flex-col lg:flex-row gap-8">
 
-              <!-- Contact Buttons -->
-              <div class="mt-auto space-y-4 w-full">
-                <a href="https://wa.me/923095330695?text=Assalam_O_Aliakum%20Umair,%20I%20found%20your%20profile" 
-                   target="_blank" 
-                   class="btn-monochrome flex items-center justify-center gap-3 font-semibold py-4 px-6 rounded-2xl transition-all duration-300 hover-lift">
-                  <i class="fab fa-whatsapp text-xl"></i>
-                  <span>Message on WhatsApp</span>
-                  <i class="fas fa-external-link-alt ml-auto"></i>
-                </a>
-                
-                <a href="mailto:umairim24@gmail.com"
-                   class="btn-monochrome flex items-center justify-center gap-3 font-semibold py-4 px-6 rounded-2xl transition-all duration-300 hover-lift">
-                  <i class="fas fa-envelope-open-text"></i>
-                  <span>Send Email</span>
-                  <i class="fas fa-paper-plane ml-auto"></i>
-                </a>
-              </div>
-            </div>
+              <!-- Left Profile Section -->
+              <div class="lg:w-2/5 flex flex-col items-center lg:items-start">
 
-            <!-- Right Content Section -->
-            <div class="lg:w-3/5 p-8 md:p-10 bg-white dark:bg-black">
-              
-              <!-- Section Title -->
-              <div class="mb-10">
-                <div class="flex items-center gap-3 mb-6">
-                  <div class="w-10 h-0.5 bg-black dark:bg-white"></div>
-                  <h2 class="text-2xl md:text-3xl font-black tracking-tight">
-                    Digital <span class="text-black dark:text-white">Presence</span>
-                  </h2>
-                  <div class="flex-1 h-0.5 bg-black dark:bg-white"></div>
-                </div>
-                <p class="text-gray-600 dark:text-gray-400 text-sm mb-8">
-                  Connect across platforms. Consistent username <span class="font-bold text-black dark:text-white">@umair12x</span>
-                </p>
-              </div>
-
-              <!-- Social Grid -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                <!-- GitHub -->
-                <a href="https://github.com/umair12x" target="_blank"
-                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
-                  <div class="icon-container">
-                    <i class="fab fa-github text-black dark:text-white text-xl"></i>
+                <!-- Avatar Container with Clay Style -->
+                <div class="relative mb-8 float-card">
+                  <div class="clay-avatar w-48 h-48 md:w-56 md:h-56 relative">
+                    <img 
+                      src="./profile_pic_1.jpg" 
+                      alt="Muhammad Umair"
+                      class="w-full h-full object-cover rounded-full"
+                      onerror="this.src='https://ui-avatars.com/api/?name=Muhammad+Umair&background=ffd4a3&color=2d2a3e&size=256'"
+                    >
                   </div>
-                  <div class="flex-1">
-                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">GitHub</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                  </div>
-                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
-                </a>
-
-                <!-- LinkedIn -->
-                <a href="https://linkedin.com/in/umair12x" target="_blank"
-                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
-                  <div class="icon-container">
-                    <i class="fab fa-linkedin-in text-black dark:text-white text-xl"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">LinkedIn</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                  </div>
-                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
-                </a>
-
-                <!-- Twitter -->
-                <a href="https://x.com/umair12x" target="_blank"
-                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
-                  <div class="icon-container">
-                    <i class="fab fa-twitter text-black dark:text-white text-xl"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">Twitter</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                  </div>
-                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
-                </a>
-
-                <!-- Instagram -->
-                <a href="https://instagram.com/umair12x" target="_blank"
-                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
-                  <div class="icon-container">
-                    <i class="fab fa-instagram text-black dark:text-white text-xl"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">Instagram</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                  </div>
-                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
-                </a>
-
-                <!-- Facebook -->
-                <a href="https://facebook.com/umair12x" target="_blank"
-                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
-                  <div class="icon-container">
-                    <i class="fab fa-facebook-f text-black dark:text-white text-xl"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">Facebook</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                  </div>
-                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
-                </a>
-
-                <!-- TikTok -->
-                <a href="https://tiktok.com/@umair12x" target="_blank"
-                  class="hover-lift flex items-center gap-4 p-4 rounded-xl border border-gray-300 dark:border-gray-700 hover:border-black dark:hover:border-white bg-white dark:bg-black group">
-                  <div class="icon-container">
-                    <i class="fab fa-tiktok text-black dark:text-white text-xl"></i>
-                  </div>
-                  <div class="flex-1">
-                    <h3 class="font-bold text-gray-900 dark:text-gray-100 text-base">TikTok</h3>
-                    <p class="text-sm text-gray-600 dark:text-gray-400">@umair12x</p>
-                  </div>
-                  <i class="fas fa-arrow-up-right-from-square text-gray-400 dark:text-gray-500 group-hover:text-black dark:group-hover:text-white transition-colors"></i>
-                </a>
-              </div>
-
-              <!-- Projects Section -->
-              <div class="mb-8">
-                <div class="flex items-center gap-3 mb-6">
-                  <div class="w-10 h-0.5 bg-black dark:bg-white"></div>
-                  <h2 class="text-2xl md:text-3xl font-black tracking-tight">
-                    Notable <span class="text-black dark:text-white">Projects</span>
-                  </h2>
-                  <div class="flex-1 h-0.5 bg-black dark:bg-white"></div>
+                  <!-- Online Status with Pulse -->
+                  <div class="absolute bottom-6 right-6 w-6 h-6 bg-green-500 rounded-full border-4 border-white dark:border-clay-dark status-dot" title="Online"></div>
                 </div>
 
-                <!-- Project Card -->
-                <div class="hover-lift group bg-gradient-to-br from-white to-gray-50 dark:from-black dark:to-gray-900 rounded-2xl p-6 border border-gray-300 dark:border-gray-700 mb-8">
-                  <div class="flex items-start justify-between mb-4">
-                    <div class="w-12 h-12 rounded-xl border-2 border-black dark:border-white flex items-center justify-center">
-                      <i class="fas fa-calculator text-black dark:text-white text-xl"></i>
+                <!-- Personal Info -->
+                <div class="text-center lg:text-left w-full">
+                  <!-- Name with Gradient -->
+                  <h1 class="text-4xl md:text-5xl font-black mb-3">
+                    <span class="gradient-text">Muhammad</span>
+                    <span class="block text-gray-800 dark:text-white font-extrabold mt-1">Umair</span>
+                  </h1>
+
+                  <!-- Role badges with Clay Style -->
+                  <div class="flex flex-col gap-3 mb-6 justify-center lg:justify-start">
+                    <div class="clay-badge px-5 py-2.5 inline-flex items-center justify-center lg:justify-start gap-2 w-fit mx-auto lg:mx-0">
+                      <i class="fas fa-graduation-cap text-white dark:text-gray-200"></i>
+                      <span class="text-white dark:text-gray-200 font-bold text-sm">BS Computer Science</span>
                     </div>
-                    <span class="text-xs px-3 py-1.5 border border-black dark:border-white rounded-full font-medium">
-                      Completed
-                    </span>
+                    <div class="clay-badge px-5 py-2.5 inline-flex items-center justify-center lg:justify-start gap-2 w-fit mx-auto lg:mx-0" style="background: linear-gradient(145deg, #d4f2e3, #b4e0c8);">
+                      <i class="fas fa-code text-gray-700 dark:text-gray-800"></i>
+                      <span class="text-gray-700 dark:text-gray-800 font-bold text-sm">Full Stack Developer</span>
+                    </div>
                   </div>
-                  <h3 class="font-bold text-xl mb-3 text-gray-900 dark:text-gray-100">CGPA Calculator</h3>
-                  <p class="text-gray-700 dark:text-gray-400 text-sm mb-5 font-light leading-relaxed">
-                    Automatic CGPA Calculator for the University of Agriculture Faisalabad (UAF).
-                    Manual CGPA Calculator for universities using the 4.0 GPA system.
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-6">
-                    <span class="px-3 py-1.5 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-400 text-xs rounded-full font-medium">React.JS</span>
-                    <span class="px-3 py-1.5 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-400 text-xs rounded-full font-medium">Node.JS</span>
-                    <span class="px-3 py-1.5 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-400 text-xs rounded-full font-medium">Express.JS</span>
-                    <span class="px-3 py-1.5 border border-gray-400 dark:border-gray-600 text-gray-700 dark:text-gray-400 text-xs rounded-full font-medium">PlayWright.Js</span>
+
+                  <!-- Username -->
+                  <div class="clay-input px-5 py-3 mb-6 inline-flex items-center gap-3 mx-auto lg:mx-0">
+                    <i class="fas fa-at text-orange-400 dark:text-orange-300"></i>
+                    <span class="font-bold text-gray-700 dark:text-gray-200">umair12x</span>
+                    <span class="text-gray-400">|</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">Consistent Handle</span>
                   </div>
-                  <div class="flex items-center justify-between">
-                    <a href="https://uafcgpaharvester.vercel.app/" target="_blank" class="font-medium text-sm hover:underline flex items-center gap-2 text-black dark:text-white">
-                      View Project <i class="fas fa-arrow-up-right-from-square text-xs"></i>
-                    </a>
-                    <span class="text-xs text-gray-500 dark:text-gray-500 flex items-center">
-                      <i class="fas fa-clock mr-1"></i> 2024
-                    </span>
+
+                  <!-- Bio Quote Card -->
+                  <div class="quote-clay rounded-3xl p-6 mb-8 relative overflow-hidden">
+                    <div class="absolute top-2 right-4 text-6xl text-white/30 dark:text-white/10 font-serif">"</div>
+                    <div class="relative z-10">
+                      <p class="text-gray-700 dark:text-gray-200 italic font-semibold text-lg leading-relaxed">
+                        Hoping for a chance to get her in this timeline, cause there's no other.
+                      </p>
+                      <div class="flex items-center gap-2 mt-4">
+                        <div class="flex gap-1">
+                          <div class="w-2 h-2 rounded-full bg-orange-400 animate-bounce"></div>
+                          <div class="w-2 h-2 rounded-full bg-orange-400 animate-bounce" style="animation-delay: 0.1s"></div>
+                          <div class="w-2 h-2 rounded-full bg-orange-400 animate-bounce" style="animation-delay: 0.2s"></div>
+                        </div>
+                        <span class="text-xs text-gray-500 dark:text-gray-400 ml-auto font-medium">Personal Mantra</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                
-                <!-- View All Projects Button -->
-                <div class="text-center">
-                  <a href="https://github.com/umair12x?tab=repositories" 
+
+                <!-- Contact Buttons -->
+                <div class="w-full space-y-4">
+                  <a href="https://wa.me/923095330695?text=Assalam_O_Aliakum%20Umair,%20I%20found%20your%20profile" 
                      target="_blank" 
-                     class="btn-monochrome inline-flex items-center gap-3 px-8 py-4 font-semibold rounded-2xl transition-all duration-300 hover-lift">
-                    <i class="fab fa-github text-xl"></i>
-                    <span>Explore All Projects on GitHub</span>
-                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition-transform duration-300"></i>
+                     class="clay-btn flex items-center justify-center gap-3 font-bold py-4 px-6 text-gray-700 dark:text-gray-200 group">
+                    <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+                      <i class="fab fa-whatsapp text-white text-lg"></i>
+                    </div>
+                    <span>Message on WhatsApp</span>
+                    <i class="fas fa-external-link-alt ml-auto text-gray-400 group-hover:translate-x-1 transition-transform"></i>
+                  </a>
+
+                  <a href="mailto:umairim24@gmail.com"
+                     class="clay-btn flex items-center justify-center gap-3 font-bold py-4 px-6 text-gray-700 dark:text-gray-200 group">
+                    <div class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center shadow-lg">
+                      <i class="fas fa-envelope text-white text-lg"></i>
+                    </div>
+                    <span>Send Email</span>
+                    <i class="fas fa-paper-plane ml-auto text-gray-400 group-hover:translate-x-1 transition-transform"></i>
                   </a>
                 </div>
               </div>
 
-              <!-- Footer -->
-              <div class="pt-8 border-t border-gray-300 dark:border-gray-700">
-                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-                  <div class="text-center sm:text-left">
-                    <p class="text-gray-800 dark:text-gray-300 font-medium">
-                      <i class="fas fa-code mr-2 text-black dark:text-white"></i>
-                      Available for freelance & collaborations
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-500 text-sm mt-1">
-                      Connect: <span class="font-bold text-black dark:text-white">@umair12x</span> everywhere
-                    </p>
+              <!-- Right Content Section -->
+              <div class="lg:w-3/5">
+
+                <!-- Section Title -->
+                <div class="mb-8">
+                  <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-1.5 rounded-full bg-gradient-to-r from-orange-400 to-pink-400"></div>
+                    <h2 class="text-3xl md:text-4xl font-black text-gray-800 dark:text-white">
+                      Digital <span class="gradient-text">Presence</span>
+                    </h2>
                   </div>
-                  <div class="flex flex-col sm:flex-row items-center gap-4">
-                    <div class="flex items-center">
-                      <div class="w-2 h-2 rounded-full bg-green-500 mr-2"></div>
-                      <span class="text-xs text-gray-600 dark:text-gray-400">Active Status</span>
+                  <p class="text-gray-600 dark:text-gray-400 text-sm ml-16">
+                    Connect across platforms. Consistent username <span class="font-bold text-orange-500 dark:text-orange-400">@umair12x</span>
+                  </p>
+                </div>
+
+                <!-- Social Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                  <!-- GitHub -->
+                  <a href="https://github.com/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
+                    <div class="clay-icon w-12 h-12 flex items-center justify-center">
+                      <i class="fab fa-github text-gray-800 dark:text-white text-xl"></i>
                     </div>
-                    <div class="text-gray-600 dark:text-gray-500 text-sm">
-                      <i class="fas fa-heart mr-1 text-black dark:text-white"></i> Minimal Design
+                    <div class="flex-1">
+                      <h3 class="font-bold text-gray-800 dark:text-white">GitHub</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">@umair12x</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square text-gray-400 group-hover:text-orange-400 transition-colors"></i>
+                  </a>
+
+                  <!-- LinkedIn -->
+                  <a href="https://linkedin.com/in/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
+                    <div class="clay-icon w-12 h-12 flex items-center justify-center" style="background: linear-gradient(145deg, #e8f4fc, #d4e8f2);">
+                      <i class="fab fa-linkedin-in text-blue-600 text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-bold text-gray-800 dark:text-white">LinkedIn</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">@umair12x</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square text-gray-400 group-hover:text-blue-500 transition-colors"></i>
+                  </a>
+
+                  <!-- Twitter -->
+                  <a href="https://x.com/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
+                    <div class="clay-icon w-12 h-12 flex items-center justify-center" style="background: linear-gradient(145deg, #f0f0f0, #e0e0e0);">
+                      <i class="fab fa-twitter text-gray-800 dark:text-white text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-bold text-gray-800 dark:text-white">Twitter</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">@umair12x</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square text-gray-400 group-hover:text-gray-600 transition-colors"></i>
+                  </a>
+
+                  <!-- Instagram -->
+                  <a href="https://instagram.com/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
+                    <div class="clay-icon w-12 h-12 flex items-center justify-center" style="background: linear-gradient(145deg, #ffe8f0, #ffd4e0);">
+                      <i class="fab fa-instagram text-pink-600 text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-bold text-gray-800 dark:text-white">Instagram</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">@umair12x</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square text-gray-400 group-hover:text-pink-500 transition-colors"></i>
+                  </a>
+
+                  <!-- Facebook -->
+                  <a href="https://facebook.com/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
+                    <div class="clay-icon w-12 h-12 flex items-center justify-center" style="background: linear-gradient(145deg, #e8f0ff, #d4e0fc);">
+                      <i class="fab fa-facebook-f text-blue-600 text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-bold text-gray-800 dark:text-white">Facebook</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">@umair12x</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square text-gray-400 group-hover:text-blue-600 transition-colors"></i>
+                  </a>
+
+                  <!-- TikTok -->
+                  <a href="https://tiktok.com/@umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
+                    <div class="clay-icon w-12 h-12 flex items-center justify-center" style="background: linear-gradient(145deg, #f0f0f0, #e8e8e8);">
+                      <i class="fab fa-tiktok text-gray-800 dark:text-white text-xl"></i>
+                    </div>
+                    <div class="flex-1">
+                      <h3 class="font-bold text-gray-800 dark:text-white">TikTok</h3>
+                      <p class="text-sm text-gray-500 dark:text-gray-400">@umair12x</p>
+                    </div>
+                    <i class="fas fa-arrow-up-right-from-square text-gray-400 group-hover:text-black transition-colors"></i>
+                  </a>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="mb-8">
+                  <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-1.5 rounded-full bg-gradient-to-r from-green-400 to-teal-400"></div>
+                    <h2 class="text-3xl md:text-4xl font-black text-gray-800 dark:text-white">
+                      Notable <span class="gradient-text">Projects</span>
+                    </h2>
+                  </div>
+
+                  <!-- Project Card -->
+                  <div class="project-clay clay-card p-6 mb-6 group cursor-pointer" onclick="window.open('https://uafcgpaharvester.vercel.app/', '_blank')">
+                    <div class="flex items-start justify-between mb-4">
+                      <div class="clay-icon w-14 h-14 flex items-center justify-center" style="background: linear-gradient(145deg, #fff0e8, #ffe0d0);">
+                        <i class="fas fa-calculator text-orange-500 text-2xl"></i>
+                      </div>
+                      <span class="clay-chip px-4 py-1.5 text-xs font-bold text-gray-700 dark:text-gray-200">
+                        <i class="fas fa-check-circle text-green-500 mr-1"></i> Completed
+                      </span>
+                    </div>
+                    <h3 class="font-black text-2xl mb-3 text-gray-800 dark:text-white group-hover:text-orange-500 transition-colors">CGPA Calculator</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-5 leading-relaxed">
+                      Automatic CGPA Calculator for the University of Agriculture Faisalabad (UAF). Manual CGPA Calculator for universities using the 4.0 GPA system.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                      <span class="clay-chip px-3 py-1.5 text-xs font-bold text-gray-700 dark:text-gray-200">React.JS</span>
+                      <span class="clay-chip px-3 py-1.5 text-xs font-bold text-gray-700 dark:text-gray-200">Node.JS</span>
+                      <span class="clay-chip px-3 py-1.5 text-xs font-bold text-gray-700 dark:text-gray-200">Express.JS</span>
+                      <span class="clay-chip px-3 py-1.5 text-xs font-bold text-gray-700 dark:text-gray-200">PlayWright</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                      <span class="font-bold text-sm text-orange-500 dark:text-orange-400 flex items-center gap-2 group-hover:gap-3 transition-all">
+                        View Project <i class="fas fa-arrow-right"></i>
+                      </span>
+                      <span class="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1">
+                        <i class="fas fa-clock"></i> 2024
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- View All Projects Button -->
+                  <div class="text-center">
+                    <a href="https://github.com/umair12x?tab=repositories" 
+                       target="_blank" 
+                       class="clay-btn inline-flex items-center gap-3 px-8 py-4 font-bold text-gray-700 dark:text-gray-200 group">
+                      <i class="fab fa-github text-2xl"></i>
+                      <span>Explore All Projects</span>
+                      <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Footer -->
+                <div class="pt-6 border-t-2 border-dashed border-gray-300 dark:border-gray-600">
+                  <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div class="text-center sm:text-left">
+                      <p class="text-gray-700 dark:text-gray-300 font-bold flex items-center gap-2 justify-center sm:justify-start">
+                        <i class="fas fa-code text-orange-400"></i>
+                        Available for freelance & collaborations
+                      </p>
+                      <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                        Connect: <span class="font-bold text-orange-500 dark:text-orange-400">@umair12x</span> everywhere
+                      </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                      <div class="flex items-center clay-input px-3 py-1.5">
+                        <div class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
+                        <span class="text-xs text-gray-600 dark:text-gray-400 font-semibold">Active</span>
+                      </div>
+                      <div class="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1">
+                        <i class="fas fa-heart text-red-400 animate-pulse"></i>
+                        <span class="font-medium">Clay Design</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -570,19 +752,29 @@
         </div>
 
         <!-- Stats / Additional Info -->
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div class="glass-effect rounded-2xl p-6 text-center border border-gray-300 dark:border-gray-700">
-            <div class="text-2xl font-black mb-2 text-black dark:text-white">6</div>
-            <div class="text-gray-700 dark:text-gray-400 text-sm">Social Platforms</div>
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="stat-clay clay-card p-6 text-center float-card">
+            <div class="text-4xl font-black mb-2 gradient-text">6+</div>
+            <div class="text-gray-600 dark:text-gray-300 font-semibold">Social Platforms</div>
+            <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">Consistent presence</div>
           </div>
-          <div class="glass-effect rounded-2xl p-6 text-center border border-gray-300 dark:border-gray-700">
-            <div class="text-2xl font-black mb-2 text-black dark:text-white">24/7</div>
-            <div class="text-gray-700 dark:text-gray-400 text-sm">Response Time</div>
+          <div class="clay-card p-6 text-center float-card" style="background: linear-gradient(145deg, #ffe8f0, #ffd4e0);">
+            <div class="text-4xl font-black mb-2 gradient-text">24/7</div>
+            <div class="text-gray-600 dark:text-gray-300 font-semibold">Response Time</div>
+            <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">Always available</div>
           </div>
-          <div class="glass-effect rounded-2xl p-6 text-center border border-gray-300 dark:border-gray-700">
-            <div class="text-2xl font-black mb-2 text-black dark:text-white">100%</div>
-            <div class="text-gray-700 dark:text-gray-400 text-sm">Handle Consistency</div>
+          <div class="clay-card p-6 text-center float-card" style="background: linear-gradient(145deg, #e8f4ff, #d4e8fc);">
+            <div class="text-4xl font-black mb-2 gradient-text">100%</div>
+            <div class="text-gray-600 dark:text-gray-300 font-semibold">Handle Consistency</div>
+            <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">@umair12x everywhere</div>
           </div>
+        </div>
+
+        <!-- Bottom Decoration -->
+        <div class="mt-8 text-center">
+          <p class="text-gray-400 dark:text-gray-600 text-sm font-medium">
+            Crafted with <i class="fas fa-heart text-red-400 mx-1"></i> 
+          </p>
         </div>
       </div>
     </div>
@@ -592,39 +784,35 @@
         const themeToggle = document.getElementById("themeToggle");
         const themeIcon = document.getElementById("themeIcon");
         const htmlElement = document.documentElement;
-        
+
         // Initialize theme
         function initTheme() {
           const savedTheme = localStorage.getItem("theme");
           const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-          
+
           if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
             enableDarkMode();
           } else {
             enableLightMode();
           }
         }
-        
+
         // Enable dark mode
         function enableDarkMode() {
           htmlElement.classList.add("dark");
           themeIcon.classList.remove("fa-moon");
           themeIcon.classList.add("fa-sun");
-          themeIcon.classList.add("text-gray-300");
-          themeIcon.classList.remove("text-gray-800");
           localStorage.setItem("theme", "dark");
         }
-        
+
         // Enable light mode
         function enableLightMode() {
           htmlElement.classList.remove("dark");
           themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.remove("text-gray-300");
           themeIcon.classList.add("fa-moon");
-          themeIcon.classList.add("text-gray-800");
           localStorage.setItem("theme", "light");
         }
-        
+
         // Toggle theme
         themeToggle.addEventListener("click", function () {
           if (htmlElement.classList.contains("dark")) {
@@ -632,76 +820,74 @@
           } else {
             enableDarkMode();
           }
-          
+
           // Click animation
-          this.classList.add("scale-90");
-          setTimeout(() => this.classList.remove("scale-90"), 150);
+          this.style.transform = "scale(0.9)";
+          setTimeout(() => this.style.transform = "", 150);
         });
-        
+
         // System theme listener
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
           if (!localStorage.getItem("theme")) {
             e.matches ? enableDarkMode() : enableLightMode();
           }
         });
-        
+
         // Initialize
         initTheme();
-        
-        // Add intersection observer for animations
+
+        // Add intersection observer for scroll animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px"
+        };
+
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
             if (entry.isIntersecting) {
-              entry.target.classList.add('animate-fade-in');
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
             }
           });
-        }, { threshold: 0.1 });
-        
-        // Observe elements
-        document.querySelectorAll('.hover-lift').forEach(el => observer.observe(el));
-        
-        // Add ripple effect to buttons
-        const buttons = document.querySelectorAll('a, button');
-        buttons.forEach(button => {
-          button.addEventListener('click', function(e) {
-            const ripple = document.createElement('span');
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.social-link, .project-clay').forEach((el, index) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = `all 0.6s ease ${index * 0.1}s`;
+          observer.observe(el);
+        });
+
+        // Add magnetic effect to buttons
+        const buttons = document.querySelectorAll('.clay-btn');
+        buttons.forEach(btn => {
+          btn.addEventListener('mousemove', function(e) {
             const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size/2;
-            const y = e.clientY - rect.top - size/2;
-            
-            ripple.style.cssText = `
-              position: absolute;
-              border-radius: 50%;
-              background: rgba(0, 0, 0, 0.2);
-              transform: scale(0);
-              animation: ripple 0.6s linear;
-              width: ${size}px;
-              height: ${size}px;
-              top: ${y}px;
-              left: ${x}px;
-              pointer-events: none;
-            `;
-            
-            this.style.position = 'relative';
-            this.style.overflow = 'hidden';
-            this.appendChild(ripple);
-            
-            setTimeout(() => ripple.remove(), 600);
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.02)`;
+          });
+
+          btn.addEventListener('mouseleave', function() {
+            this.style.transform = '';
           });
         });
-        
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-          @keyframes ripple {
-            to {
-              transform: scale(4);
-              opacity: 0;
-            }
-          }
-        `;
-        document.head.appendChild(style);
+
+        // Parallax effect for blobs
+        document.addEventListener('mousemove', (e) => {
+          const blobs = document.querySelectorAll('.blob');
+          const x = e.clientX / window.innerWidth;
+          const y = e.clientY / window.innerHeight;
+
+          blobs.forEach((blob, index) => {
+            const speed = (index + 1) * 20;
+            const xOffset = (0.5 - x) * speed;
+            const yOffset = (0.5 - y) * speed;
+            blob.style.transform = `translate(${xOffset}px, ${yOffset}px) scale(${1 + index * 0.1})`;
+          });
+        });
       });
     </script>
   </body>
