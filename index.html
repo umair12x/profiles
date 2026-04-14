@@ -1,933 +1,520 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Umair — Developer Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Umair — Developer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <script>
       tailwind.config = {
-        darkMode: 'class',
+        darkMode: "class",
         theme: {
-          extend: {
-            fontFamily: {
-              'jakarta': ['Plus Jakarta Sans', 'sans-serif'],
+          fontFamily: { sans: ["Inter", "sans-serif"] },
+          colors: {
+            primary: { 500: "#6366f1", 600: "#4f46e5" },
+            secondary: { 500: "#14b8a6" },
+            slate: {
+              50: "#f8fafc",
+              100: "#f1f5f9",
+              200: "#e2e8f0",
+              700: "#334155",
+              800: "#1e293b",
+              900: "#0f172a",
             },
-            colors: {
-              // Professional Light Palette
-              'slate-50': '#f8fafc',
-              'slate-100': '#f1f5f9',
-              'slate-200': '#e2e8f0',
-              'slate-300': '#cbd5e1',
-              'slate-400': '#94a3b8',
-              'slate-500': '#64748b',
-              'slate-600': '#475569',
-              'slate-700': '#334155',
-              'slate-800': '#1e293b',
-              'slate-900': '#0f172a',
-
-              // Professional Accent - Deep Indigo/Blue
-              'primary-50': '#eef2ff',
-              'primary-100': '#e0e7ff',
-              'primary-200': '#c7d2fe',
-              'primary-300': '#a5b4fc',
-              'primary-400': '#818cf8',
-              'primary-500': '#6366f1',
-              'primary-600': '#4f46e5',
-              'primary-700': '#4338ca',
-              'primary-800': '#3730a3',
-              'primary-900': '#312e81',
-
-              // Secondary Accent - Teal/Cyan
-              'secondary-400': '#2dd4bf',
-              'secondary-500': '#14b8a6',
-              'secondary-600': '#0d9488',
-
-              // Dark Mode Professional
-              'dark-bg': '#0b0f19',
-              'dark-card': '#151b2b',
-              'dark-elevated': '#1e2538',
-            },
-            boxShadow: {
-              'clay': 'inset -6px -6px 12px rgba(0,0,0,0.06), inset 6px 6px 12px rgba(255,255,255,0.8), 12px 12px 24px rgba(0,0,0,0.08), -8px -8px 24px rgba(255,255,255,0.9)',
-              'clay-dark': 'inset -6px -6px 12px rgba(0,0,0,0.4), inset 6px 6px 12px rgba(255,255,255,0.03), 12px 12px 24px rgba(0,0,0,0.4), -8px -8px 24px rgba(255,255,255,0.02)',
-              'clay-hover': 'inset -6px -6px 12px rgba(0,0,0,0.06), inset 6px 6px 12px rgba(255,255,255,0.8), 16px 16px 32px rgba(0,0,0,0.12), -12px -12px 32px rgba(255,255,255,0.95)',
-              'clay-hover-dark': 'inset -6px -6px 12px rgba(0,0,0,0.4), inset 6px 6px 12px rgba(255,255,255,0.03), 16px 16px 32px rgba(0,0,0,0.5), -12px -12px 32px rgba(255,255,255,0.03)',
-              'clay-sm': 'inset -3px -3px 6px rgba(0,0,0,0.05), inset 3px 3px 6px rgba(255,255,255,0.7), 6px 6px 12px rgba(0,0,0,0.06), -4px -4px 12px rgba(255,255,255,0.8)',
-              'clay-sm-dark': 'inset -3px -3px 6px rgba(0,0,0,0.3), inset 3px 3px 6px rgba(255,255,255,0.02), 6px 6px 12px rgba(0,0,0,0.3), -4px -4px 12px rgba(255,255,255,0.02)',
-              'clay-inset': 'inset 3px 3px 6px rgba(0,0,0,0.06), inset -3px -3px 6px rgba(255,255,255,0.8)',
-              'clay-inset-dark': 'inset 3px 3px 6px rgba(0,0,0,0.3), inset -3px -3px 6px rgba(255,255,255,0.02)',
-              'elevated': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-              'elevated-dark': '0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.3)',
-            },
-            animation: {
-              'float': 'float 6s ease-in-out infinite',
-              'float-slow': 'float 8s ease-in-out infinite',
-              'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
-              'slide-up': 'slideUp 0.6s ease-out forwards',
-              'fade-in': 'fadeIn 0.8s ease-out forwards',
-              'scale-in': 'scaleIn 0.5s ease-out forwards',
-              'shimmer': 'shimmer 2s linear infinite',
-            },
-            keyframes: {
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              },
-              pulseSoft: {
-                '0%, 100%': { opacity: '1' },
-                '50%': { opacity: '0.7' },
-              },
-              slideUp: {
-                '0%': { opacity: '0', transform: 'translateY(30px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              scaleIn: {
-                '0%': { opacity: '0', transform: 'scale(0.95)' },
-                '100%': { opacity: '1', transform: 'scale(1)' },
-              },
-              shimmer: {
-                '0%': { backgroundPosition: '-200% 0' },
-                '100%': { backgroundPosition: '200% 0' },
-              },
-            }
-          }
-        }
-      }
+          },
+        },
+      };
     </script>
     <style>
       * {
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: Inter, sans-serif;
       }
-
-      body {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      /* Professional Claymorphism Base */
       .clay-card {
-        border-radius: 24px;
-        background: linear-gradient(145deg, #ffffff, #f1f5f9);
-        box-shadow: 
-          inset -6px -6px 12px rgba(0,0,0,0.04),
-          inset 6px 6px 12px rgba(255,255,255,0.9),
-          16px 16px 32px rgba(0,0,0,0.06),
-          -12px -12px 32px rgba(255,255,255,0.95);
-        border: 1px solid rgba(255,255,255,0.6);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 20px;
+        background: #fff;
+        box-shadow:
+          inset -4px -4px 8px rgba(0, 0, 0, 0.05),
+          inset 4px 4px 8px rgba(255, 255, 255, 0.9),
+          12px 12px 24px rgba(0, 0, 0, 0.08),
+          -8px -8px 24px rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        transition: 0.3s;
       }
-
       .dark .clay-card {
-        background: linear-gradient(145deg, #1e2538, #151b2b);
-        box-shadow: 
-          inset -6px -6px 12px rgba(0,0,0,0.4),
-          inset 6px 6px 12px rgba(255,255,255,0.02),
-          16px 16px 32px rgba(0,0,0,0.4),
-          -12px -12px 32px rgba(255,255,255,0.02);
-        border: 1px solid rgba(255,255,255,0.05);
+        background: #1e2538;
+        box-shadow:
+          inset -4px -4px 8px rgba(0, 0, 0, 0.4),
+          inset 4px 4px 8px rgba(255, 255, 255, 0.02),
+          12px 12px 24px rgba(0, 0, 0, 0.4),
+          -8px -8px 24px rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
       }
-
-      .clay-card:hover {
-        box-shadow: 
-          inset -6px -6px 12px rgba(0,0,0,0.04),
-          inset 6px 6px 12px rgba(255,255,255,0.9),
-          20px 20px 40px rgba(0,0,0,0.08),
-          -16px -16px 40px rgba(255,255,255,1);
-        transform: translateY(-2px);
-      }
-
-      .dark .clay-card:hover {
-        box-shadow: 
-          inset -6px -6px 12px rgba(0,0,0,0.4),
-          inset 6px 6px 12px rgba(255,255,255,0.02),
-          20px 20px 40px rgba(0,0,0,0.5),
-          -16px -16px 40px rgba(255,255,255,0.03);
-      }
-
       .clay-btn {
-        border-radius: 16px;
-        background: linear-gradient(145deg, #ffffff, #e2e8f0);
-        box-shadow: 
-          inset -4px -4px 8px rgba(0,0,0,0.04),
-          inset 4px 4px 8px rgba(255,255,255,0.9),
-          8px 8px 16px rgba(0,0,0,0.06),
-          -6px -6px 16px rgba(255,255,255,0.9);
-        border: 1px solid rgba(255,255,255,0.5);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
+        border-radius: 14px;
+        background: linear-gradient(145deg, #fff, #f1f5f9);
+        box-shadow:
+          inset -3px -3px 6px rgba(0, 0, 0, 0.04),
+          inset 3px 3px 6px rgba(255, 255, 255, 0.9),
+          6px 6px 12px rgba(0, 0, 0, 0.06),
+          -4px -4px 12px rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        transition: 0.25s;
       }
-
       .dark .clay-btn {
         background: linear-gradient(145deg, #252d42, #1a2030);
-        box-shadow: 
-          inset -4px -4px 8px rgba(0,0,0,0.4),
-          inset 4px 4px 8px rgba(255,255,255,0.02),
-          8px 8px 16px rgba(0,0,0,0.35),
-          -6px -6px 16px rgba(255,255,255,0.02);
-        border: 1px solid rgba(255,255,255,0.04);
+        box-shadow:
+          inset -3px -3px 6px rgba(0, 0, 0, 0.4),
+          inset 3px 3px 6px rgba(255, 255, 255, 0.02),
+          6px 6px 12px rgba(0, 0, 0, 0.35),
+          -4px -4px 12px rgba(255, 255, 255, 0.02);
       }
-
       .clay-btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 
-          inset -4px -4px 8px rgba(0,0,0,0.04),
-          inset 4px 4px 8px rgba(255,255,255,0.9),
-          12px 12px 24px rgba(0,0,0,0.08),
-          -8px -8px 24px rgba(255,255,255,1);
+        transform: translateY(-2px);
       }
-
-      .dark .clay-btn:hover {
-        box-shadow: 
-          inset -4px -4px 8px rgba(0,0,0,0.4),
-          inset 4px 4px 8px rgba(255,255,255,0.02),
-          12px 12px 24px rgba(0,0,0,0.45),
-          -8px -8px 24px rgba(255,255,255,0.03);
-      }
-
-      .clay-btn:active {
-        transform: translateY(1px);
-        box-shadow: 
-          inset 4px 4px 8px rgba(0,0,0,0.08),
-          inset -4px -4px 8px rgba(255,255,255,0.7);
-      }
-
-      .dark .clay-btn:active {
-        box-shadow: 
-          inset 4px 4px 8px rgba(0,0,0,0.5),
-          inset -4px -4px 8px rgba(255,255,255,0.02);
-      }
-
       .clay-avatar {
         border-radius: 50%;
-        background: linear-gradient(145deg, #ffffff, #e2e8f0);
-        box-shadow: 
-          inset -6px -6px 12px rgba(0,0,0,0.05),
-          inset 6px 6px 12px rgba(255,255,255,0.9),
-          20px 20px 40px rgba(0,0,0,0.08),
-          -12px -12px 36px rgba(255,255,255,0.95);
-        border: 3px solid rgba(255,255,255,0.7);
-        padding: 6px;
+        background: #fff;
+        box-shadow:
+          inset -4px -4px 8px rgba(0, 0, 0, 0.05),
+          inset 4px 4px 8px rgba(255, 255, 255, 0.9),
+          16px 16px 32px rgba(0, 0, 0, 0.08),
+          -8px -8px 24px rgba(255, 255, 255, 0.95);
+        border: 3px solid rgba(255, 255, 255, 0.7);
+        padding: 5px;
       }
-
       .dark .clay-avatar {
-        background: linear-gradient(145deg, #2a3350, #1e2538);
-        box-shadow: 
-          inset -6px -6px 12px rgba(0,0,0,0.4),
-          inset 6px 6px 12px rgba(255,255,255,0.02),
-          20px 20px 40px rgba(0,0,0,0.4),
-          -12px -12px 36px rgba(255,255,255,0.02);
-        border: 3px solid rgba(255,255,255,0.06);
+        background: #252d42;
+        box-shadow:
+          inset -4px -4px 8px rgba(0, 0, 0, 0.4),
+          inset 4px 4px 8px rgba(255, 255, 255, 0.02),
+          16px 16px 32px rgba(0, 0, 0, 0.4),
+          -8px -8px 24px rgba(255, 255, 255, 0.02);
       }
-
       .clay-icon {
-        border-radius: 14px;
-        background: linear-gradient(145deg, #f8fafc, #e2e8f0);
-        box-shadow: 
-          inset -3px -3px 6px rgba(0,0,0,0.04),
-          inset 3px 3px 6px rgba(255,255,255,0.8),
-          6px 6px 12px rgba(0,0,0,0.05),
-          -4px -4px 12px rgba(255,255,255,0.9);
-        border: 1px solid rgba(255,255,255,0.5);
-        transition: all 0.3s ease;
+        border-radius: 12px;
+        background: #f8fafc;
+        box-shadow:
+          inset -2px -2px 4px rgba(0, 0, 0, 0.04),
+          inset 2px 2px 4px rgba(255, 255, 255, 0.8),
+          4px 4px 8px rgba(0, 0, 0, 0.05),
+          -2px -2px 8px rgba(255, 255, 255, 0.9);
+        transition: 0.2s;
       }
-
       .dark .clay-icon {
-        background: linear-gradient(145deg, #252d42, #1a2030);
-        box-shadow: 
-          inset -3px -3px 6px rgba(0,0,0,0.3),
-          inset 3px 3px 6px rgba(255,255,255,0.02),
-          6px 6px 12px rgba(0,0,0,0.3),
-          -4px -4px 12px rgba(255,255,255,0.02);
-        border: 1px solid rgba(255,255,255,0.04);
+        background: #252d42;
       }
-
-      .clay-icon:hover {
-        transform: translateY(-2px) scale(1.05);
-      }
-
       .clay-badge {
         border-radius: 50px;
         background: linear-gradient(135deg, #6366f1, #4f46e5);
-        box-shadow: 
-          inset -2px -2px 4px rgba(0,0,0,0.1),
-          inset 2px 2px 4px rgba(255,255,255,0.2),
-          4px 4px 8px rgba(79, 70, 229, 0.25);
-        border: 1px solid rgba(255,255,255,0.15);
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
       }
-
       .dark .clay-badge {
         background: linear-gradient(135deg, #4f46e5, #4338ca);
-        box-shadow: 
-          inset -2px -2px 4px rgba(0,0,0,0.3),
-          inset 2px 2px 4px rgba(255,255,255,0.05),
-          4px 4px 8px rgba(0,0,0,0.3);
       }
-
-      .clay-input {
-        border-radius: 14px;
-        background: linear-gradient(145deg, #f1f5f9, #ffffff);
-        box-shadow: 
-          inset 3px 3px 6px rgba(0,0,0,0.05),
-          inset -3px -3px 6px rgba(255,255,255,0.9);
-        border: 1px solid rgba(203, 213, 225, 0.3);
+      .theme-btn {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 50;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow:
+          inset -2px -2px 4px rgba(0, 0, 0, 0.04),
+          inset 2px 2px 4px rgba(255, 255, 255, 0.9),
+          6px 6px 12px rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        transition: 0.3s;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
-
-      .dark .clay-input {
-        background: linear-gradient(145deg, #151b2b, #1e2538);
-        box-shadow: 
-          inset 3px 3px 6px rgba(0,0,0,0.3),
-          inset -3px -3px 6px rgba(255,255,255,0.02);
-        border: 1px solid rgba(255,255,255,0.04);
+      .dark .theme-btn {
+        background: #252d42;
+        box-shadow:
+          inset -2px -2px 4px rgba(0, 0, 0, 0.3),
+          6px 6px 12px rgba(0, 0, 0, 0.3);
       }
-
-      .clay-chip {
-        border-radius: 50px;
-        background: linear-gradient(145deg, #f1f5f9, #e2e8f0);
-        box-shadow: 
-          inset -2px -2px 4px rgba(0,0,0,0.03),
-          inset 2px 2px 4px rgba(255,255,255,0.7),
-          3px 3px 6px rgba(0,0,0,0.04),
-          -2px -2px 6px rgba(255,255,255,0.8);
-        border: 1px solid rgba(255,255,255,0.4);
+      .theme-btn:hover {
+        transform: rotate(180deg) scale(1.05);
       }
-
-      .dark .clay-chip {
-        background: linear-gradient(145deg, #252d42, #1a2030);
-        box-shadow: 
-          inset -2px -2px 4px rgba(0,0,0,0.3),
-          inset 2px 2px 4px rgba(255,255,255,0.02),
-          3px 3px 6px rgba(0,0,0,0.2),
-          -2px -2px 6px rgba(255,255,255,0.02);
-        border: 1px solid rgba(255,255,255,0.04);
+      .gradient-text {
+        background: linear-gradient(135deg, #4f46e5, #06b6d4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-
-      /* Gradient Backgrounds */
-      .bg-gradient-mesh {
-        background: 
-          radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
-          radial-gradient(at 100% 0%, rgba(20, 184, 166, 0.06) 0px, transparent 50%),
-          radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.06) 0px, transparent 50%),
-          radial-gradient(at 0% 100%, rgba(20, 184, 166, 0.08) 0px, transparent 50%),
-          linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+      .dark .gradient-text {
+        background: linear-gradient(135deg, #818cf8, #22d3ee);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
-
-      .dark .bg-gradient-mesh {
-        background: 
-          radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.15) 0px, transparent 50%),
-          radial-gradient(at 100% 0%, rgba(20, 184, 166, 0.1) 0px, transparent 50%),
-          radial-gradient(at 100% 100%, rgba(79, 70, 229, 0.1) 0px, transparent 50%),
-          radial-gradient(at 0% 100%, rgba(20, 184, 166, 0.15) 0px, transparent 50%),
-          linear-gradient(180deg, #0b0f19 0%, #151b2b 100%);
-      }
-
-      /* Status Dot */
       .status-dot {
         position: relative;
       }
-
       .status-dot::after {
-        content: '';
+        content: "";
         position: absolute;
-        inset: -4px;
+        inset: -3px;
         border-radius: 50%;
         border: 2px solid #22c55e;
-        animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        animation: pulse 2s infinite;
       }
-
-      @keyframes pulse-ring {
-        0% { transform: scale(1); opacity: 1; }
-        100% { transform: scale(1.5); opacity: 0; }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1.4);
+          opacity: 0;
+        }
       }
-
-      /* Scrollbar */
+      .float {
+        animation: float 5s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
       ::-webkit-scrollbar {
-        width: 10px;
+        width: 8px;
       }
-
       ::-webkit-scrollbar-track {
         background: #f1f5f9;
-        border-radius: 8px;
       }
-
       ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #6366f1, #4f46e5);
-        border-radius: 8px;
-        border: 2px solid #f1f5f9;
+        background: #6366f1;
+        border-radius: 4px;
       }
-
       .dark ::-webkit-scrollbar-track {
         background: #151b2b;
       }
-
       .dark ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #4f46e5, #4338ca);
-        border: 2px solid #151b2b;
+        background: #4f46e5;
       }
-
-      /* Selection */
-      ::selection {
-        background: rgba(99, 102, 241, 0.2);
-        color: inherit;
-      }
-
-      /* Theme Toggle */
-      .theme-toggle-clay {
-        border-radius: 50%;
-        background: linear-gradient(145deg, #ffffff, #e2e8f0);
-        box-shadow: 
-          inset -3px -3px 6px rgba(0,0,0,0.04),
-          inset 3px 3px 6px rgba(255,255,255,0.9),
-          8px 8px 16px rgba(0,0,0,0.06),
-          -6px -6px 16px rgba(255,255,255,0.9);
-        border: 1px solid rgba(255,255,255,0.5);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .dark .theme-toggle-clay {
-        background: linear-gradient(145deg, #252d42, #1a2030);
-        box-shadow: 
-          inset -3px -3px 6px rgba(0,0,0,0.3),
-          inset 3px 3px 6px rgba(255,255,255,0.02),
-          8px 8px 16px rgba(0,0,0,0.3),
-          -6px -6px 16px rgba(255,255,255,0.02);
-        border: 1px solid rgba(255,255,255,0.04);
-      }
-
-      .theme-toggle-clay:hover {
-        transform: rotate(180deg) scale(1.1);
-      }
-
-      /* Gradient Text */
-      .gradient-text {
-        background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      .dark .gradient-text {
-        background: linear-gradient(135deg, #818cf8 0%, #22d3ee 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-      }
-
-      /* Section Divider */
-      .section-divider {
-        height: 3px;
-        background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-        border-radius: 2px;
-      }
-
-      .dark .section-divider {
-        background: linear-gradient(90deg, transparent, #334155, transparent);
-      }
-
-      /* Project Card Special */
-      .project-card {
-        background: linear-gradient(145deg, #ffffff, #f8fafc);
-        border-left: 4px solid #6366f1;
-      }
-
-      .dark .project-card {
-        background: linear-gradient(145deg, #1e2538, #151b2b);
-        border-left: 4px solid #4f46e5;
-      }
-
-      /* Social Link Hover */
-      .social-link {
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      .social-link:hover {
-        transform: translateY(-4px);
-      }
-
-      .social-link:hover .clay-icon {
-        transform: scale(1.1);
-      }
-
-      /* Stats Card */
-      .stat-card {
-        background: linear-gradient(145deg, #f8fafc, #f1f5f9);
-      }
-
-      .dark .stat-card {
-        background: linear-gradient(145deg, #1e2538, #151b2b);
-      }
-
-      /* Quote Card */
-      .quote-card {
-        background: linear-gradient(145deg, #eef2ff, #e0e7ff);
-        border-left: 4px solid #6366f1;
-      }
-
-      .dark .quote-card {
-        background: linear-gradient(145deg, #1e1b4b, #312e81);
-        border-left: 4px solid #818cf8;
-      }
-
-      /* Shimmer Effect */
-      .shimmer {
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-        background-size: 200% 100%;
-        animation: shimmer 2s infinite;
-      }
-
-      /* Floating Animation */
-      .float-animation {
-        animation: float 6s ease-in-out infinite;
-      }
-
-      .float-animation-delayed {
-        animation: float 6s ease-in-out 1s infinite;
-      }
-
-      /* Glow Effects */
-      .glow-primary {
-        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
-      }
-
-      .dark .glow-primary {
-        box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
+      .dark body {
+        background: #0b0f19;
       }
     </style>
-  <base target="_blank">
-</head>
-  <body class="bg-gradient-mesh text-slate-700 dark:text-slate-200 transition-colors duration-500 min-h-screen font-jakarta">
-
-    <!-- Theme Toggle -->
-    <button id="themeToggle" class="fixed top-6 right-6 z-50 w-14 h-14 theme-toggle-clay flex items-center justify-center group">
-      <i id="themeIcon" class="fas fa-moon text-slate-600 dark:text-yellow-300 text-xl transition-all duration-500"></i>
+    <base target="_blank" />
+  </head>
+  <body
+    class="bg-slate-50 text-slate-700 dark:text-slate-200 min-h-screen flex items-center justify-center p-4"
+  >
+    <button id="t" class="theme-btn" aria-label="Toggle theme">
+      <i id="i" class="fas fa-moon text-slate-600 dark:text-yellow-300"></i>
     </button>
 
-    <!-- Main Content -->
-    <div class="relative z-10 min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
-      <div class="w-full max-w-5xl animate-scale-in">
-
-        <!-- Main Clay Card Container -->
-        <div class="clay-card p-2 md:p-3">
-          <div class="bg-white/60 dark:bg-dark-card/60 rounded-[20px] p-6 md:p-10 backdrop-blur-sm">
-            <div class="flex flex-col lg:flex-row gap-10">
-
-              <!-- Left Profile Section -->
-              <div class="lg:w-2/5 flex flex-col items-center lg:items-start">
-
-                <!-- Avatar Container -->
-                <div class="relative mb-8 float-animation">
-                  <div class="clay-avatar w-44 h-44 md:w-52 md:h-52 relative">
-                    <img 
-                      src="./profile-picture.jpeg" 
-                      alt="Muhammad Umair"
-                      class="w-full h-full object-cover rounded-full"
-                      onerror="this.src='https://ui-avatars.com/api/?name=Muhammad+Umair&background=6366f1&color=ffffff&size=256'"
-                    >
-                  </div>
-                  <!-- Online Status -->
-                  <div class="absolute bottom-4 right-4 w-5 h-5 bg-green-500 rounded-full border-4 border-white dark:border-dark-card status-dot" title="Online"></div>
+    <div class="w-full max-w-4xl fade-in">
+      <div class="clay-card p-3">
+        <div
+          class="bg-white/70 dark:bg-slate-900/70 rounded-2xl p-6 md:p-8 backdrop-blur-sm"
+        >
+          <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Left: Profile -->
+            <div class="lg:w-2/5 flex flex-col items-center lg:items-start">
+              <div class="relative mb-6 float">
+                <div class="clay-avatar w-40 h-40 md:w-48 md:h-48">
+                  <img
+                    src="./profile-picture.jpeg"
+                    alt="Muhammad Umair"
+                    class="w-full h-full object-cover rounded-full"
+                    onerror="
+                      this.src =
+                        'https://ui-avatars.com/api/?name=Muhammad+Umair&background=6366f1&color=fff&size=256'
+                    "
+                  />
                 </div>
+                <div
+                  class="absolute bottom-3 right-3 w-4 h-4 bg-green-500 rounded-full border-3 border-white dark:border-slate-900 status-dot"
+                ></div>
+              </div>
 
-                <!-- Personal Info -->
-                <div class="text-center lg:text-left w-full">
-                  <!-- Name -->
-                  <h1 class="text-4xl md:text-5xl font-extrabold mb-2 tracking-tight">
-                    <span class="text-slate-800 dark:text-white">Muhammad</span>
-                    <span class="block gradient-text mt-1">Umair</span>
-                  </h1>
+              <h1
+                class="text-3xl md:text-4xl font-extrabold mb-1 text-center lg:text-left"
+              >
+                <span class="text-slate-800 dark:text-white-100">Muhammad</span>
+                <span class="block gradient-text">Umair</span>
+              </h1>
 
-                  <!-- Role badges -->
-                  <div class="flex flex-col gap-3 mb-6 justify-center lg:justify-start mt-6">
-                    <div class="clay-badge px-5 py-2.5 inline-flex items-center justify-center lg:justify-start gap-2 w-fit mx-auto lg:mx-0">
-                      <i class="fas fa-graduation-cap text-white"></i>
-                      <span class="text-white font-semibold text-sm">BS Computer Science</span>
-                    </div>
-                    <div class="clay-badge px-5 py-2.5 inline-flex items-center justify-center lg:justify-start gap-2 w-fit mx-auto lg:mx-0" style="background: linear-gradient(135deg, #14b8a6, #0d9488);">
-                      <i class="fas fa-code text-white"></i>
-                      <span class="text-white font-semibold text-sm">Full Stack Developer</span>
-                    </div>
-                  </div>
-
-                  <!-- Username -->
-                  <div class="clay-input px-5 py-3 mb-6 inline-flex items-center gap-3 mx-auto lg:mx-0">
-                    <i class="fas fa-at text-primary-500"></i>
-                    <span class="font-bold text-slate-700 dark:text-slate-200">umair12x</span>
-                    <span class="text-slate-300">|</span>
-                    <span class="text-sm text-slate-500 dark:text-slate-400">Consistent Handle</span>
-                  </div>
-
-                  <!-- Bio Quote Card -->
-                  <div class="quote-card rounded-2xl p-6 mb-8 relative overflow-hidden">
-                    <div class="absolute top-3 right-4 text-5xl text-primary-500/20 dark:text-primary-400/20 font-serif">"</div>
-                    <div class="relative z-10">
-                      <p class="text-slate-700 dark:text-slate-200 italic font-medium text-base leading-relaxed">
-                        Hoping for a chance to get her in this timeline, cause there's no other.
-                      </p>
-                      <div class="flex items-center gap-2 mt-4">
-                        <div class="flex gap-1">
-                          <div class="w-1.5 h-1.5 rounded-full bg-primary-500 animate-bounce"></div>
-                          <div class="w-1.5 h-1.5 rounded-full bg-primary-500 animate-bounce" style="animation-delay: 0.1s"></div>
-                          <div class="w-1.5 h-1.5 rounded-full bg-primary-500 animate-bounce" style="animation-delay: 0.2s"></div>
-                        </div>
-                        <span class="text-xs text-slate-500 dark:text-slate-400 ml-auto font-medium uppercase tracking-wider">Personal Mantra</span>
-                      </div>
-                    </div>
-                  </div>
+              <div class="flex flex-col gap-2 mt-4 mb-4 w-full">
+                <div
+                  class="clay-badge px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 w-fit mx-auto lg:mx-0"
+                >
+                  <i class="fas fa-graduation-cap"></i>BS Computer Science
                 </div>
-
-                <!-- Contact Buttons -->
-                <div class="w-full space-y-4">
-                  <a href="https://wa.me/923095330695?text=Assalam_O_Aliakum%20Umair,%20I%20found%20your%20profile" 
-                     target="_blank" 
-                     class="clay-btn flex items-center justify-center gap-3 font-semibold py-4 px-6 text-slate-700 dark:text-slate-200 group hover:text-green-600 dark:hover:text-green-400">
-                    <div class="w-10 h-10 rounded-xl bg-green-500 flex items-center justify-center shadow-lg">
-                      <i class="fab fa-whatsapp text-white text-lg"></i>
-                    </div>
-                    <span>Message on WhatsApp</span>
-                    <i class="fas fa-external-link-alt ml-auto text-slate-400 group-hover:translate-x-1 transition-transform"></i>
-                  </a>
-
-                  <a href="mailto:umairim24@gmail.com"
-                     class="clay-btn flex items-center justify-center gap-3 font-semibold py-4 px-6 text-slate-700 dark:text-slate-200 group hover:text-red-500 dark:hover:text-red-400">
-                    <div class="w-10 h-10 rounded-xl bg-red-500 flex items-center justify-center shadow-lg">
-                      <i class="fas fa-envelope text-white text-lg"></i>
-                    </div>
-                    <span>Send Email</span>
-                    <i class="fas fa-paper-plane ml-auto text-slate-400 group-hover:translate-x-1 transition-transform"></i>
-                  </a>
+                <div
+                  class="clay-badge px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 w-fit mx-auto lg:mx-0"
+                  style="background: linear-gradient(135deg, #14b8a6, #0d9488)"
+                >
+                  <i class="fas fa-code"></i>Full Stack Developer
                 </div>
               </div>
 
-              <!-- Right Content Section -->
-              <div class="lg:w-3/5">
+              <div
+                class="bg-slate-100 dark:bg-slate-800 rounded-xl px-4 py-2 mb-4 flex items-center gap-2 text-sm"
+              >
+                <i class="fas fa-at text-primary-500"></i>
+                <span class="font-bold">umair12x</span>
+                <span class="text-slate-400">|</span>
+                <span class="text-slate-500">Consistent</span>
+              </div>
 
-                <!-- Section Title -->
-                <div class="mb-8">
-                  <div class="flex items-center gap-4 mb-3">
-                    <div class="w-10 h-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500"></div>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">
-                      Digital <span class="gradient-text">Presence</span>
-                    </h2>
+              <div
+                class="bg-indigo-50 dark:bg-indigo-950/30 border-l-4 border-primary-500 rounded-r-xl p-4 mb-6 w-full"
+              >
+                <p class="text-slate-700 dark:text-slate-300 italic text-sm">
+                  "What if this is a past life, and we are already something
+                  else to each other in our next life?f"
+                </p>
+                <span class="text-xs text-slate-500 mt-2 block"
+                  >Personal Mantra</span
+                >
+              </div>
+
+              <div class="w-full space-y-3">
+                <a
+                  href="https://wa.me/923095330695?text=Assalam_O_Aliakum%20Umair"
+                  class="clay-btn flex items-center gap-3 py-3 px-5 text-slate-700 dark:text-slate-200 hover:text-green-600"
+                >
+                  <div
+                    class="w-9 h-9 rounded-lg bg-green-500 flex items-center justify-center"
+                  >
+                    <i class="fab fa-whatsapp text-white"></i>
                   </div>
-                  <p class="text-slate-500 dark:text-slate-400 text-sm ml-14">
-                    Connect across platforms. Consistent username <span class="font-bold text-primary-500 dark:text-primary-400">@umair12x</span>
-                  </p>
+                  <span class="font-semibold text-sm">WhatsApp</span>
+                  <i
+                    class="fas fa-external-link-alt ml-auto text-xs text-slate-400"
+                  ></i>
+                </a>
+                <a
+                  href="mailto:umairim24@gmail.com"
+                  class="clay-btn flex items-center gap-3 py-3 px-5 text-slate-700 dark:text-slate-200 hover:text-red-500"
+                >
+                  <div
+                    class="w-9 h-9 rounded-lg bg-red-500 flex items-center justify-center"
+                  >
+                    <i class="fas fa-envelope text-white"></i>
+                  </div>
+                  <span class="font-semibold text-sm">Email</span>
+                  <i
+                    class="fas fa-paper-plane ml-auto text-xs text-slate-400"
+                  ></i>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Social Links -->
+            <div class="lg:w-3/5">
+              <div class="flex items-center gap-3 mb-6">
+                <div
+                  class="w-8 h-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500"
+                ></div>
+                <h2 class="text-xl font-bold text-slate-800 dark:text-white">
+                  Digital <span class="gradient-text">Presence</span>
+                </h2>
+              </div>
+              <p class="text-sm text-slate-500 mb-5 ml-11">
+                Connect:
+                <span class="font-bold text-primary-500">@umair12x</span>
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a
+                  href="https://github.com/umair12x"
+                  class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
+                >
+                  <div
+                    class="clay-icon w-10 h-10 flex items-center justify-center"
+                  >
+                    <i class="fab fa-github text-lg"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm">GitHub</div>
+                    <div class="text-xs text-slate-500">@umair12x</div>
+                  </div>
+                </a>
+                <a
+                  href="https://linkedin.com/in/umair12x"
+                  class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
+                >
+                  <div
+                    class="clay-icon w-10 h-10 flex items-center justify-center bg-blue-100"
+                  >
+                    <i class="fab fa-linkedin-in text-blue-600 text-lg"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm">LinkedIn</div>
+                    <div class="text-xs text-slate-500">@umair12x</div>
+                  </div>
+                </a>
+                <a
+                  href="https://x.com/umair12x"
+                  class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
+                >
+                  <div
+                    class="clay-icon w-10 h-10 flex items-center justify-center"
+                  >
+                    <i class="fab fa-twitter text-lg"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm">Twitter</div>
+                    <div class="text-xs text-slate-500">@umair12x</div>
+                  </div>
+                </a>
+                <a
+                  href="https://instagram.com/umair12x"
+                  class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
+                >
+                  <div
+                    class="clay-icon w-10 h-10 flex items-center justify-center bg-pink-100"
+                  >
+                    <i class="fab fa-instagram text-pink-600 text-lg"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm">Instagram</div>
+                    <div class="text-xs text-slate-500">@umair12x</div>
+                  </div>
+                </a>
+                <a
+                  href="https://facebook.com/umair12x"
+                  class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
+                >
+                  <div
+                    class="clay-icon w-10 h-10 flex items-center justify-center bg-blue-100"
+                  >
+                    <i class="fab fa-facebook-f text-blue-600 text-lg"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm">Facebook</div>
+                    <div class="text-xs text-slate-500">@umair12x</div>
+                  </div>
+                </a>
+                <a
+                  href="https://tiktok.com/@umair12x"
+                  class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
+                >
+                  <div
+                    class="clay-icon w-10 h-10 flex items-center justify-center"
+                  >
+                    <i class="fab fa-tiktok text-lg"></i>
+                  </div>
+                  <div>
+                    <div class="font-bold text-sm">TikTok</div>
+                    <div class="text-xs text-slate-500">@umair12x</div>
+                  </div>
+                </a>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3 mt-5">
+                <div
+                  class="bg-slate-100 dark:bg-slate-800 rounded-xl p-3 text-center"
+                >
+                  <div class="text-xl font-bold gradient-text">6+</div>
+                  <div class="text-xs text-slate-500">Platforms</div>
                 </div>
-
-                <!-- Social Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                  <!-- GitHub -->
-                  <a href="https://github.com/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
-                    <div class="clay-icon w-12 h-12 flex items-center justify-center">
-                      <i class="fab fa-github text-slate-700 dark:text-white text-xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-bold text-slate-800 dark:text-white text-sm">GitHub</h3>
-                      <p class="text-xs text-slate-500 dark:text-slate-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-slate-400 group-hover:text-primary-500 transition-colors"></i>
-                  </a>
-
-                  <!-- LinkedIn -->
-                  <a href="https://linkedin.com/in/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
-                    <div class="clay-icon w-12 h-12 flex items-center justify-center" style="background: linear-gradient(145deg, #dbeafe, #bfdbfe);">
-                      <i class="fab fa-linkedin-in text-blue-600 text-xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-bold text-slate-800 dark:text-white text-sm">LinkedIn</h3>
-                      <p class="text-xs text-slate-500 dark:text-slate-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-slate-400 group-hover:text-blue-500 transition-colors"></i>
-                  </a>
-
-                  <!-- Twitter -->
-                  <a href="https://x.com/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
-                    <div class="clay-icon w-12 h-12 flex items-center justify-center">
-                      <i class="fab fa-twitter text-slate-800 dark:text-white text-xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-bold text-slate-800 dark:text-white text-sm">Twitter</h3>
-                      <p class="text-xs text-slate-500 dark:text-slate-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-slate-400 group-hover:text-slate-600 transition-colors"></i>
-                  </a>
-
-                  <!-- Instagram -->
-                  <a href="https://instagram.com/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
-                    <div class="clay-icon w-12 h-12 flex items-center justify-center" style="background: linear-gradient(145deg, #fce7f3, #fbcfe8);">
-                      <i class="fab fa-instagram text-pink-600 text-xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-bold text-slate-800 dark:text-white text-sm">Instagram</h3>
-                      <p class="text-xs text-slate-500 dark:text-slate-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-slate-400 group-hover:text-pink-500 transition-colors"></i>
-                  </a>
-
-                  <!-- Facebook -->
-                  <a href="https://facebook.com/umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
-                    <div class="clay-icon w-12 h-12 flex items-center justify-center" style="background: linear-gradient(145deg, #dbeafe, #bfdbfe);">
-                      <i class="fab fa-facebook-f text-blue-600 text-xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-bold text-slate-800 dark:text-white text-sm">Facebook</h3>
-                      <p class="text-xs text-slate-500 dark:text-slate-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-slate-400 group-hover:text-blue-600 transition-colors"></i>
-                  </a>
-
-                  <!-- TikTok -->
-                  <a href="https://tiktok.com/@umair12x" target="_blank" class="social-link clay-btn p-4 flex items-center gap-4 group">
-                    <div class="clay-icon w-12 h-12 flex items-center justify-center">
-                      <i class="fab fa-tiktok text-slate-800 dark:text-white text-xl"></i>
-                    </div>
-                    <div class="flex-1">
-                      <h3 class="font-bold text-slate-800 dark:text-white text-sm">TikTok</h3>
-                      <p class="text-xs text-slate-500 dark:text-slate-400">@umair12x</p>
-                    </div>
-                    <i class="fas fa-arrow-up-right-from-square text-slate-400 group-hover:text-slate-800 transition-colors"></i>
-                  </a>
+                <div
+                  class="bg-slate-100 dark:bg-slate-800 rounded-xl p-3 text-center"
+                >
+                  <div class="text-xl font-bold text-secondary-500">24/7</div>
+                  <div class="text-xs text-slate-500">Active</div>
                 </div>
-
-                <!-- Projects Section -->
-                <div class="mb-8">
-                  <div class="flex items-center gap-4 mb-6">
-                    <div class="w-10 h-1 rounded-full bg-gradient-to-r from-secondary-500 to-primary-500"></div>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">
-                      Notable <span class="gradient-text">Projects</span>
-                    </h2>
-                  </div>
-
-                  <!-- Project Card -->
-                  <div class="project-card clay-card p-6 mb-6 group cursor-pointer" onclick="window.open('https://github.com/umair12x/eeForm', '_blank')">
-                    <div class="flex items-start justify-between mb-4">
-                      <div class="clay-icon w-14 h-14 flex items-center justify-center" style="background: linear-gradient(145deg, #f1c309, #e5875c);">
-                        <i class="fas fa-calculator text-amber-600 text-2xl"></i>
-                      </div>
-                      <span class="clay-chip px-4 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
-                        <i class="fas fa-check-circle text-green-500"></i> Completed
-                      </span>
-                    </div>
-                    <h3 class="font-extrabold text-xl mb-2 text-slate-800 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">E-Enrollment System</h3>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-5 leading-relaxed">
-                      A full digital enrollment platform for 20,000+ users, replacing all manual paperwork
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-5">
-                      <span class="clay-chip px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200">Next.JS</span>
-                      <span class="clay-chip px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200">cloudnairy</span>
-                      <span class="clay-chip px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200">jspdf</span>
-                      <span class="clay-chip px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200"></span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <span class="font-semibold text-sm text-primary-600 dark:text-primary-400 flex items-center gap-2 group-hover:gap-3 transition-all">
-                        View Project <i class="fas fa-arrow-right"></i>
-                      </span>
-                      <span class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                        <i class="fas fa-clock"></i> 2026
-                      </span>
-                    </div>
-                  </div>
-                  <div class="project-card clay-card p-6 mb-6 group cursor-pointer" onclick="window.open('https://uafcgpaharvester.vercel.app/', '_blank')">
-                    <div class="flex items-start justify-between mb-4">
-                      <div class="clay-icon w-14 h-14 flex items-center justify-center" style="background: linear-gradient(145deg, #fef3c7, #fde68a);">
-                        <i class="fas fa-calculator text-amber-600 text-2xl"></i>
-                      </div>
-                      <span class="clay-chip px-4 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 flex items-center gap-1.5">
-                        <i class="fas fa-check-circle text-green-500"></i> Completed
-                      </span>
-                    </div>
-                    <h3 class="font-extrabold text-xl mb-2 text-slate-800 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">CGPA Calculator</h3>
-                    <p class="text-slate-600 dark:text-slate-300 text-sm mb-5 leading-relaxed">
-                      Automatic CGPA Calculator for the University of Agriculture Faisalabad (UAF). Manual CGPA Calculator for universities using the 4.0 GPA system.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-5">
-                      <span class="clay-chip px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200">React.JS</span>
-                      <span class="clay-chip px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200">Node.JS</span>
-                      <span class="clay-chip px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200">Express.JS</span>
-                      <span class="clay-chip px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200">PlayWright</span>
-                    </div>
-                    <div class="flex items-center justify-between">
-                      <span class="font-semibold text-sm text-primary-600 dark:text-primary-400 flex items-center gap-2 group-hover:gap-3 transition-all">
-                        View Project <i class="fas fa-arrow-right"></i>
-                      </span>
-                      <span class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                        <i class="fas fa-clock"></i> 2024
-                      </span>
-                    </div>
-                  </div>
-
-                  <!-- View All Projects Button -->
-                  <div class="text-center">
-                    <a href="https://github.com/umair12x?tab=repositories" 
-                       target="_blank" 
-                       class="clay-btn inline-flex items-center gap-3 px-8 py-4 font-semibold text-slate-700 dark:text-slate-200 group">
-                      <i class="fab fa-github text-xl"></i>
-                      <span>Explore All Projects</span>
-                      <i class="fas fa-arrow-right group-hover:translate-x-2 transition-transform"></i>
-                    </a>
-                  </div>
+                <div
+                  class="bg-slate-100 dark:bg-slate-800 rounded-xl p-3 text-center"
+                >
+                  <div class="text-xl font-bold text-primary-500">100%</div>
+                  <div class="text-xs text-slate-500">Consistent</div>
                 </div>
+              </div>
 
-                <!-- Footer -->
-                <div class="pt-6 border-t border-slate-200 dark:border-slate-700">
-                  <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <div class="text-center sm:text-left">
-                      <p class="text-slate-700 dark:text-slate-200 font-semibold flex items-center gap-2 justify-center sm:justify-start">
-                        <i class="fas fa-code text-primary-500"></i>
-                        Available for freelance & collaborations
-                      </p>
-                      <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">
-                        Connect: <span class="font-bold text-primary-500 dark:text-primary-400">@umair12x</span> everywhere
-                      </p>
-                    </div>
-                    <div class="flex items-center gap-3">
-                      <div class="flex items-center clay-input px-3 py-1.5">
-                        <div class="w-2 h-2 rounded-full bg-green-500 mr-2 animate-pulse"></div>
-                        <span class="text-xs text-slate-600 dark:text-slate-300 font-medium">Active</span>
-                      </div>
-                      <div class="text-slate-500 dark:text-slate-400 text-sm flex items-center gap-1.5">
-                        <i class="fas fa-heart text-red-400"></i>
-                        <span class="font-medium">Professional Design</span>
-                      </div>
-                    </div>
-                  </div>
+              <div
+                class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between"
+              >
+                <p class="text-sm text-slate-600 dark:text-slate-300">
+                  <i class="fas fa-code text-primary-500 mr-2"></i>Available for
+                  work
+                </p>
+                <div class="flex items-center gap-2 text-xs">
+                  <span
+                    class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+                  ></span>
+                  <span class="text-slate-500">Online</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Stats Cards -->
-        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div class="stat-card clay-card p-6 text-center float-animation">
-            <div class="text-4xl font-extrabold mb-2 gradient-text">6+</div>
-            <div class="text-slate-600 dark:text-slate-300 font-semibold text-sm">Social Platforms</div>
-            <div class="mt-2 text-xs text-slate-400 dark:text-slate-500">Consistent presence</div>
-          </div>
-          <div class="stat-card clay-card p-6 text-center float-animation-delayed" style="background: linear-gradient(145deg, #f0fdf4, #dcfce7);">
-            <div class="text-4xl font-extrabold mb-2 text-secondary-600 dark:text-secondary-400">24/7</div>
-            <div class="text-slate-600 dark:text-slate-300 font-semibold text-sm">Response Time</div>
-            <div class="mt-2 text-xs text-slate-400 dark:text-slate-500">Always available</div>
-          </div>
-          <div class="stat-card clay-card p-6 text-center float-animation" style="animation-delay: 2s;">
-            <div class="text-4xl font-extrabold mb-2 text-primary-600 dark:text-primary-400">100%</div>
-            <div class="text-slate-600 dark:text-slate-300 font-semibold text-sm">Handle Consistency</div>
-            <div class="mt-2 text-xs text-slate-400 dark:text-slate-500">@umair12x everywhere</div>
-          </div>
+      <div class="mt-6 grid grid-cols-3 gap-4">
+        <div class="clay-card p-4 text-center float">
+          <div class="text-2xl font-bold gradient-text">6+</div>
+          <div class="text-xs text-slate-500">Platforms</div>
         </div>
-
-        <!-- Bottom Decoration -->
-        <div class="mt-8 text-center">
-          <p class="text-slate-400 dark:text-slate-600 text-sm font-medium">
-            Crafted with <i class="fas fa-heart text-red-400 mx-1"></i>
-          </p>
+        <div
+          class="clay-card p-4 text-center float"
+          style="animation-delay: 1s"
+        >
+          <div class="text-2xl font-bold text-secondary-500">24/7</div>
+          <div class="text-xs text-slate-500">Response</div>
+        </div>
+        <div
+          class="clay-card p-4 text-center float"
+          style="animation-delay: 2s"
+        >
+          <div class="text-2xl font-bold text-primary-500">100%</div>
+          <div class="text-xs text-slate-500">Consistent</div>
         </div>
       </div>
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const themeToggle = document.getElementById("themeToggle");
-        const themeIcon = document.getElementById("themeIcon");
-        const htmlElement = document.documentElement;
-
-        // Initialize theme
-        function initTheme() {
-          const savedTheme = localStorage.getItem("theme");
-          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-          if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-            enableDarkMode();
-          } else {
-            enableLightMode();
-          }
-        }
-
-        // Enable dark mode
-        function enableDarkMode() {
-          htmlElement.classList.add("dark");
-          themeIcon.classList.remove("fa-moon");
-          themeIcon.classList.add("fa-sun");
-          localStorage.setItem("theme", "dark");
-        }
-
-        // Enable light mode
-        function enableLightMode() {
-          htmlElement.classList.remove("dark");
-          themeIcon.classList.remove("fa-sun");
-          themeIcon.classList.add("fa-moon");
-          localStorage.setItem("theme", "light");
-        }
-
-        // Toggle theme
-        themeToggle.addEventListener("click", function () {
-          if (htmlElement.classList.contains("dark")) {
-            enableLightMode();
-          } else {
-            enableDarkMode();
-          }
-
-          // Click animation
-          this.style.transform = "scale(0.9)";
-          setTimeout(() => this.style.transform = "", 150);
-        });
-
-        // System theme listener
-        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", e => {
-          if (!localStorage.getItem("theme")) {
-            e.matches ? enableDarkMode() : enableLightMode();
-          }
-        });
-
-        // Initialize
-        initTheme();
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = "1";
-              entry.target.style.transform = "translateY(0)";
-            }
-          });
-        }, observerOptions);
-
-        // Observe elements
-        document.querySelectorAll('.social-link, .project-card').forEach((el, index) => {
-          el.style.opacity = "0";
-          el.style.transform = "translateY(20px)";
-          el.style.transition = `all 0.6s ease ${index * 0.08}s`;
-          observer.observe(el);
-        });
-
-        // Magnetic effect on buttons
-        const buttons = document.querySelectorAll('.clay-btn');
-        buttons.forEach(btn => {
-          btn.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left - rect.width / 2;
-            const y = e.clientY - rect.top - rect.height / 2;
-
-            this.style.transform = `translate(${x * 0.05}px, ${y * 0.05}px)`;
-          });
-
-          btn.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-          });
-        });
-      });
+      const t = document.getElementById("t"),
+        i = document.getElementById("i"),
+        h = document.documentElement;
+      function d() {
+        h.classList.add("dark");
+        i.classList.replace("fa-moon", "fa-sun");
+        localStorage.theme = "dark";
+      }
+      function l() {
+        h.classList.remove("dark");
+        i.classList.replace("fa-sun", "fa-moon");
+        localStorage.theme = "light";
+      }
+      t.onclick = () => (h.classList.contains("dark") ? l() : d());
+      localStorage.theme === "dark" ||
+      (!localStorage.theme && matchMedia("(prefers-color-scheme:dark)").matches)
+        ? d()
+        : l();
     </script>
   </body>
 </html>
