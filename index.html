@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,42 +13,16 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          fontFamily: { sans: ["Inter", "sans-serif"] },
-          colors: {
-            primary: { 500: "#6366f1", 600: "#4f46e5" },
-            secondary: { 500: "#14b8a6" },
-            slate: {
-              50: "#f8fafc",
-              100: "#f1f5f9",
-              200: "#e2e8f0",
-              700: "#334155",
-              800: "#1e293b",
-              900: "#0f172a",
-            },
-          },
-        },
-      };
-    </script>
     <style>
       * {
         font-family: Inter, sans-serif;
       }
+      body {
+        background: #0b0f19;
+        color: #cbd5e1;
+      }
       .clay-card {
         border-radius: 20px;
-        background: #fff;
-        box-shadow:
-          inset -4px -4px 8px rgba(0, 0, 0, 0.05),
-          inset 4px 4px 8px rgba(255, 255, 255, 0.9),
-          12px 12px 24px rgba(0, 0, 0, 0.08),
-          -8px -8px 24px rgba(255, 255, 255, 0.95);
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        transition: 0.3s;
-      }
-      .dark .clay-card {
         background: #1e2538;
         box-shadow:
           inset -4px -4px 8px rgba(0, 0, 0, 0.4),
@@ -59,107 +33,49 @@
       }
       .clay-btn {
         border-radius: 14px;
-        background: linear-gradient(145deg, #fff, #f1f5f9);
-        box-shadow:
-          inset -3px -3px 6px rgba(0, 0, 0, 0.04),
-          inset 3px 3px 6px rgba(255, 255, 255, 0.9),
-          6px 6px 12px rgba(0, 0, 0, 0.06),
-          -4px -4px 12px rgba(255, 255, 255, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        transition: 0.25s;
-      }
-      .dark .clay-btn {
         background: linear-gradient(145deg, #252d42, #1a2030);
         box-shadow:
           inset -3px -3px 6px rgba(0, 0, 0, 0.4),
           inset 3px 3px 6px rgba(255, 255, 255, 0.02),
           6px 6px 12px rgba(0, 0, 0, 0.35),
           -4px -4px 12px rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: 0.25s;
+        color: #cbd5e1;
       }
       .clay-btn:hover {
         transform: translateY(-2px);
       }
       .clay-avatar {
         border-radius: 50%;
-        background: #fff;
-        box-shadow:
-          inset -4px -4px 8px rgba(0, 0, 0, 0.05),
-          inset 4px 4px 8px rgba(255, 255, 255, 0.9),
-          16px 16px 32px rgba(0, 0, 0, 0.08),
-          -8px -8px 24px rgba(255, 255, 255, 0.95);
-        border: 3px solid rgba(255, 255, 255, 0.7);
-        padding: 5px;
-      }
-      .dark .clay-avatar {
         background: #252d42;
         box-shadow:
           inset -4px -4px 8px rgba(0, 0, 0, 0.4),
           inset 4px 4px 8px rgba(255, 255, 255, 0.02),
           16px 16px 32px rgba(0, 0, 0, 0.4),
           -8px -8px 24px rgba(255, 255, 255, 0.02);
+        border: 3px solid rgba(255, 255, 255, 0.06);
+        padding: 5px;
       }
       .clay-icon {
         border-radius: 12px;
-        background: #f8fafc;
-        box-shadow:
-          inset -2px -2px 4px rgba(0, 0, 0, 0.04),
-          inset 2px 2px 4px rgba(255, 255, 255, 0.8),
-          4px 4px 8px rgba(0, 0, 0, 0.05),
-          -2px -2px 8px rgba(255, 255, 255, 0.9);
-        transition: 0.2s;
-      }
-      .dark .clay-icon {
-        background: #252d42;
-      }
-      .clay-badge {
-        border-radius: 50px;
-        background: linear-gradient(135deg, #6366f1, #4f46e5);
-        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
-      }
-      .dark .clay-badge {
-        background: linear-gradient(135deg, #4f46e5, #4338ca);
-      }
-      .theme-btn {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 50;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: #fff;
-        box-shadow:
-          inset -2px -2px 4px rgba(0, 0, 0, 0.04),
-          inset 2px 2px 4px rgba(255, 255, 255, 0.9),
-          6px 6px 12px rgba(0, 0, 0, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        transition: 0.3s;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .dark .theme-btn {
         background: #252d42;
         box-shadow:
           inset -2px -2px 4px rgba(0, 0, 0, 0.3),
-          6px 6px 12px rgba(0, 0, 0, 0.3);
+          inset 2px 2px 4px rgba(255, 255, 255, 0.02),
+          4px 4px 8px rgba(0, 0, 0, 0.3),
+          -2px -2px 8px rgba(255, 255, 255, 0.02);
       }
-      .theme-btn:hover {
-        transform: rotate(180deg) scale(1.05);
+      .clay-badge {
+        border-radius: 50px;
+        background: linear-gradient(135deg, #4f46e5, #4338ca);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        color: #fff;
       }
       .gradient-text {
-        background: linear-gradient(135deg, #4f46e5, #06b6d4);
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      .dark .gradient-text {
         background: linear-gradient(135deg, #818cf8, #22d3ee);
-        background-clip: text;
+        -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-      }
-      .status-dot {
-        position: relative;
       }
       .status-dot::after {
         content: "";
@@ -167,9 +83,9 @@
         inset: -3px;
         border-radius: 50%;
         border: 2px solid #22c55e;
-        animation: pulse 2s infinite;
+        animation: p 2s infinite;
       }
-      @keyframes pulse {
+      @keyframes p {
         0% {
           transform: scale(1);
           opacity: 1;
@@ -180,9 +96,9 @@
         }
       }
       .float {
-        animation: float 5s ease-in-out infinite;
+        animation: f 5s ease-in-out infinite;
       }
-      @keyframes float {
+      @keyframes f {
         0%,
         100% {
           transform: translateY(0);
@@ -191,10 +107,10 @@
           transform: translateY(-8px);
         }
       }
-      .fade-in {
-        animation: fadeIn 0.6s ease-out;
+      .fade {
+        animation: a 0.6s ease-out;
       }
-      @keyframes fadeIn {
+      @keyframes a {
         from {
           opacity: 0;
           transform: translateY(20px);
@@ -206,40 +122,21 @@
       }
       ::-webkit-scrollbar {
         width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #f1f5f9;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #6366f1;
-        border-radius: 4px;
-      }
-      .dark ::-webkit-scrollbar-track {
         background: #151b2b;
       }
-      .dark ::-webkit-scrollbar-thumb {
+      ::-webkit-scrollbar-thumb {
         background: #4f46e5;
-      }
-      .dark body {
-        background: #0b0f19;
+        border-radius: 4px;
       }
     </style>
     <base target="_blank" />
+    <base target="_blank" />
   </head>
-  <body
-    class="bg-slate-50 text-slate-700 dark:text-slate-200 min-h-screen flex items-center justify-center p-4"
-  >
-    <button id="t" class="theme-btn" aria-label="Toggle theme">
-      <i id="i" class="fas fa-moon text-slate-600 dark:text-yellow-300"></i>
-    </button>
-
-    <div class="w-full max-w-4xl fade-in">
+  <body class="min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-4xl fade">
       <div class="clay-card p-3">
-        <div
-          class="bg-white/70 dark:bg-slate-900/70 rounded-2xl p-6 md:p-8 backdrop-blur-sm"
-        >
+        <div class="bg-slate-900/70 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
           <div class="flex flex-col lg:flex-row gap-8">
-            <!-- Left: Profile -->
             <div class="lg:w-2/5 flex flex-col items-center lg:items-start">
               <div class="relative mb-6 float">
                 <div class="clay-avatar w-40 h-40 md:w-48 md:h-48">
@@ -249,49 +146,45 @@
                     class="w-full h-full object-cover rounded-full"
                     onerror="
                       this.src =
-                        'https://ui-avatars.com/api/?name=Muhammad+Umair&background=6366f1&color=fff&size=256'
+                        'https://ui-avatars.com/api/?name=Muhammad+Umair&background=4f46e5&color=fff&size=256'
                     "
                   />
                 </div>
                 <div
-                  class="absolute bottom-3 right-3 w-4 h-4 bg-green-500 rounded-full border-3 border-white dark:border-slate-900 status-dot"
+                  class="absolute bottom-3 right-3 w-4 h-4 bg-green-500 rounded-full border-3 border-slate-900 status-dot"
                 ></div>
               </div>
-
               <h1
                 class="text-3xl md:text-4xl font-extrabold mb-1 text-center lg:text-left"
               >
-                <span class="text-slate-800 dark:text-white-100">Muhammad</span>
+                <span class="text-white">Muhammad</span>
                 <span class="block gradient-text">Umair</span>
               </h1>
-
               <div class="flex flex-col gap-2 mt-4 mb-4 w-full">
                 <div
-                  class="clay-badge px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 w-fit mx-auto lg:mx-0"
+                  class="clay-badge px-4 py-2 text-sm font-semibold flex items-center gap-2 w-fit mx-auto lg:mx-0"
                 >
                   <i class="fas fa-graduation-cap"></i>BS Computer Science
                 </div>
                 <div
-                  class="clay-badge px-4 py-2 text-white text-sm font-semibold flex items-center gap-2 w-fit mx-auto lg:mx-0"
+                  class="clay-badge px-4 py-2 text-sm font-semibold flex items-center gap-2 w-fit mx-auto lg:mx-0"
                   style="background: linear-gradient(135deg, #14b8a6, #0d9488)"
                 >
                   <i class="fas fa-code"></i>Full Stack Developer
                 </div>
               </div>
-
               <div
-                class="bg-slate-100 dark:bg-slate-800 rounded-xl px-4 py-2 mb-4 flex items-center gap-2 text-sm"
+                class="bg-slate-800 rounded-xl px-4 py-2 mb-4 flex items-center gap-2 text-sm"
               >
-                <i class="fas fa-at text-primary-500"></i>
-                <span class="font-bold">umair12x</span>
-                <span class="text-slate-400">|</span>
-                <span class="text-slate-500">Consistent</span>
+                <i class="fas fa-at text-indigo-400"></i>
+                <span class="font-bold text-slate-200">umair12x</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-slate-400">Consistent</span>
               </div>
-
               <div
-                class="bg-indigo-50 dark:bg-indigo-950/30 border-l-4 border-primary-500 rounded-r-xl p-4 mb-6 w-full"
+                class="bg-indigo-950/30 border-l-4 border-indigo-500 rounded-r-xl p-4 mb-6 w-full"
               >
-                <p class="text-slate-700 dark:text-slate-300 italic text-sm">
+                <p class="text-slate-300 italic text-sm">
                   "What if this is a past life, and we are already something
                   else to each other in our next life?"
                 </p>
@@ -299,11 +192,10 @@
                   >Personal Mantra</span
                 >
               </div>
-
               <div class="w-full space-y-3">
                 <a
                   href="https://wa.me/923095330695?text=Assalam_O_Aliakum%20Umair"
-                  class="clay-btn flex items-center gap-3 py-3 px-5 text-slate-700 dark:text-slate-200 hover:text-green-600"
+                  class="clay-btn flex items-center gap-3 py-3 px-5 hover:text-green-400"
                 >
                   <div
                     class="w-9 h-9 rounded-lg bg-green-500 flex items-center justify-center"
@@ -312,12 +204,12 @@
                   </div>
                   <span class="font-semibold text-sm">WhatsApp</span>
                   <i
-                    class="fas fa-external-link-alt ml-auto text-xs text-slate-400"
+                    class="fas fa-external-link-alt ml-auto text-xs text-slate-500"
                   ></i>
                 </a>
                 <a
                   href="mailto:umairim24@gmail.com"
-                  class="clay-btn flex items-center gap-3 py-3 px-5 text-slate-700 dark:text-slate-200 hover:text-red-500"
+                  class="clay-btn flex items-center gap-3 py-3 px-5 hover:text-red-400"
                 >
                   <div
                     class="w-9 h-9 rounded-lg bg-red-500 flex items-center justify-center"
@@ -326,39 +218,36 @@
                   </div>
                   <span class="font-semibold text-sm">Email</span>
                   <i
-                    class="fas fa-paper-plane ml-auto text-xs text-slate-400"
+                    class="fas fa-paper-plane ml-auto text-xs text-slate-500"
                   ></i>
                 </a>
               </div>
             </div>
-
-            <!-- Right: Social Links -->
             <div class="lg:w-3/5">
               <div class="flex items-center gap-3 mb-6">
                 <div
-                  class="w-8 h-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-500"
+                  class="w-8 h-1 rounded-full bg-gradient-to-r from-indigo-400 to-teal-400"
                 ></div>
-                <h2 class="text-xl font-bold text-slate-800 dark:text-white">
+                <h2 class="text-xl font-bold text-white">
                   Digital <span class="gradient-text">Presence</span>
                 </h2>
               </div>
-              <p class="text-sm text-slate-500 mb-5 ml-11">
+              <p class="text-sm text-slate-400 mb-5 ml-11">
                 Connect:
-                <span class="font-bold text-primary-500">@umair12x</span>
+                <span class="font-bold text-indigo-400">@umair12x</span>
               </p>
-
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <a
                   href="https://github.com/umair12x"
                   class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
                 >
                   <div
-                    class="clay-icon w-10 h-10 flex items-center justify-center"
+                    class="clay-icon w-10 h-10 flex items-center justify-center text-slate-300"
                   >
                     <i class="fab fa-github text-lg"></i>
                   </div>
                   <div>
-                    <div class="font-bold text-sm">GitHub</div>
+                    <div class="font-bold text-sm text-slate-200">GitHub</div>
                     <div class="text-xs text-slate-500">@umair12x</div>
                   </div>
                 </a>
@@ -367,12 +256,12 @@
                   class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
                 >
                   <div
-                    class="clay-icon w-10 h-10 flex items-center justify-center bg-blue-100"
+                    class="clay-icon w-10 h-10 flex items-center justify-center bg-blue-900/50 text-blue-400"
                   >
-                    <i class="fab fa-linkedin-in text-blue-600 text-lg"></i>
+                    <i class="fab fa-linkedin-in text-lg"></i>
                   </div>
                   <div>
-                    <div class="font-bold text-sm">LinkedIn</div>
+                    <div class="font-bold text-sm text-slate-200">LinkedIn</div>
                     <div class="text-xs text-slate-500">@umair12x</div>
                   </div>
                 </a>
@@ -381,12 +270,12 @@
                   class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
                 >
                   <div
-                    class="clay-icon w-10 h-10 flex items-center justify-center"
+                    class="clay-icon w-10 h-10 flex items-center justify-center text-slate-300"
                   >
                     <i class="fab fa-twitter text-lg"></i>
                   </div>
                   <div>
-                    <div class="font-bold text-sm">Twitter</div>
+                    <div class="font-bold text-sm text-slate-200">Twitter</div>
                     <div class="text-xs text-slate-500">@umair12x</div>
                   </div>
                 </a>
@@ -395,12 +284,14 @@
                   class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
                 >
                   <div
-                    class="clay-icon w-10 h-10 flex items-center justify-center bg-pink-100"
+                    class="clay-icon w-10 h-10 flex items-center justify-center bg-pink-900/30 text-pink-400"
                   >
-                    <i class="fab fa-instagram text-pink-600 text-lg"></i>
+                    <i class="fab fa-instagram text-lg"></i>
                   </div>
                   <div>
-                    <div class="font-bold text-sm">Instagram</div>
+                    <div class="font-bold text-sm text-slate-200">
+                      Instagram
+                    </div>
                     <div class="text-xs text-slate-500">@umair12x</div>
                   </div>
                 </a>
@@ -409,12 +300,12 @@
                   class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
                 >
                   <div
-                    class="clay-icon w-10 h-10 flex items-center justify-center bg-blue-100"
+                    class="clay-icon w-10 h-10 flex items-center justify-center bg-blue-900/50 text-blue-400"
                   >
-                    <i class="fab fa-facebook-f text-blue-600 text-lg"></i>
+                    <i class="fab fa-facebook-f text-lg"></i>
                   </div>
                   <div>
-                    <div class="font-bold text-sm">Facebook</div>
+                    <div class="font-bold text-sm text-slate-200">Facebook</div>
                     <div class="text-xs text-slate-500">@umair12x</div>
                   </div>
                 </a>
@@ -423,43 +314,35 @@
                   class="clay-btn p-3 flex items-center gap-3 hover:-translate-y-1"
                 >
                   <div
-                    class="clay-icon w-10 h-10 flex items-center justify-center"
+                    class="clay-icon w-10 h-10 flex items-center justify-center text-slate-300"
                   >
                     <i class="fab fa-tiktok text-lg"></i>
                   </div>
                   <div>
-                    <div class="font-bold text-sm">TikTok</div>
+                    <div class="font-bold text-sm text-slate-200">TikTok</div>
                     <div class="text-xs text-slate-500">@umair12x</div>
                   </div>
                 </a>
               </div>
-
               <div class="grid grid-cols-3 gap-3 mt-5">
-                <div
-                  class="bg-slate-100 dark:bg-slate-800 rounded-xl p-3 text-center"
-                >
+                <div class="bg-slate-800 rounded-xl p-3 text-center">
                   <div class="text-xl font-bold gradient-text">6+</div>
                   <div class="text-xs text-slate-500">Platforms</div>
                 </div>
-                <div
-                  class="bg-slate-100 dark:bg-slate-800 rounded-xl p-3 text-center"
-                >
-                  <div class="text-xl font-bold text-secondary-500">24/7</div>
+                <div class="bg-slate-800 rounded-xl p-3 text-center">
+                  <div class="text-xl font-bold text-teal-400">24/7</div>
                   <div class="text-xs text-slate-500">Active</div>
                 </div>
-                <div
-                  class="bg-slate-100 dark:bg-slate-800 rounded-xl p-3 text-center"
-                >
-                  <div class="text-xl font-bold text-primary-500">100%</div>
+                <div class="bg-slate-800 rounded-xl p-3 text-center">
+                  <div class="text-xl font-bold text-indigo-400">100%</div>
                   <div class="text-xs text-slate-500">Consistent</div>
                 </div>
               </div>
-
               <div
-                class="mt-6 pt-4 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between"
+                class="mt-6 pt-4 border-t border-slate-700 flex items-center justify-between"
               >
-                <p class="text-sm text-slate-600 dark:text-slate-300">
-                  <i class="fas fa-code text-primary-500 mr-2"></i>Available for
+                <p class="text-sm text-slate-300">
+                  <i class="fas fa-code text-indigo-400 mr-2"></i>Available for
                   work
                 </p>
                 <div class="flex items-center gap-2 text-xs">
@@ -473,48 +356,6 @@
           </div>
         </div>
       </div>
-
-      <div class="mt-6 grid grid-cols-3 gap-4">
-        <div class="clay-card p-4 text-center float">
-          <div class="text-2xl font-bold gradient-text">6+</div>
-          <div class="text-xs text-slate-500">Platforms</div>
-        </div>
-        <div
-          class="clay-card p-4 text-center float"
-          style="animation-delay: 1s"
-        >
-          <div class="text-2xl font-bold text-secondary-500">24/7</div>
-          <div class="text-xs text-slate-500">Response</div>
-        </div>
-        <div
-          class="clay-card p-4 text-center float"
-          style="animation-delay: 2s"
-        >
-          <div class="text-2xl font-bold text-primary-500">100%</div>
-          <div class="text-xs text-slate-500">Consistent</div>
-        </div>
-      </div>
     </div>
-
-    <script>
-      const t = document.getElementById("t"),
-        i = document.getElementById("i"),
-        h = document.documentElement;
-      function d() {
-        h.classList.add("dark");
-        i.classList.replace("fa-moon", "fa-sun");
-        localStorage.theme = "dark";
-      }
-      function l() {
-        h.classList.remove("dark");
-        i.classList.replace("fa-sun", "fa-moon");
-        localStorage.theme = "light";
-      }
-      t.onclick = () => (h.classList.contains("dark") ? l() : d());
-      localStorage.theme === "dark" ||
-      (!localStorage.theme && matchMedia("(prefers-color-scheme:dark)").matches)
-        ? d()
-        : l();
-    </script>
   </body>
 </html>
